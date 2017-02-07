@@ -5,6 +5,21 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// added ***************************
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/project2');
+var schema = mongoose.Schema;
+
+var schema = new Schema({
+  user_name:  String,
+  author_name: String,
+  messages:  { 
+    msgs: { default: null } 
+  },
+  date: { type: Date, default: Date.now }
+});
+// ********************************
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 
