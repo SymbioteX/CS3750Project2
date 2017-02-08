@@ -1,6 +1,24 @@
 extends layout
 
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+doctype html
+html
+  head
+    title Let's Chat!
+    link(type='text/css', rel='stylesheet', href='../css/style.css')
+    link(href='https://fonts.googleapis.com/css?family=Bungee', rel='stylesheet', type='text/css')
+  body
+    header.navbar
+      h1
+        ul
+            li
+                a#logo(href='/') Let's Chat!
+            li
+                a(href='/login') Login
+            li
+                a(href='/register') Register
+            li
+                a(href='/create') Chat
+        block content
+          h1= message
+          h2= error.status
+          pre #{error.stack}

@@ -8,20 +8,21 @@ var bodyParser = require('body-parser');
 // added ***************************
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/project2');
-var schema = mongoose.Schema;
 
-var schema = new Schema({
+var schema = new mongoose.Schema({
   user_name:  String,
   author_name: String,
   messages:  { 
-    msgs: { default: null } 
-  },
-  date: { type: Date, default: Date.now }
+    msgs: { message: String },
+    date: { type: Date, default: Date.now }
+  }
 });
 // ********************************
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var chat = require('./routes/chat');
+var create = require('./routes/create');
 
 var app = express();
 
@@ -39,6 +40,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/create', create);
+app.use('/chat', chat);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
