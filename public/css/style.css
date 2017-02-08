@@ -9,13 +9,42 @@
 
 /* ------------ Body styles ------------ */
 
+html {
+    position: relative;
+    min-height: 100%;
+}
 body {
-	background-image: url("../img/bg.jpg");
-	background-position-y: 80px;
-	background-repeat: no-repeat; 
+	height: 100%;
+	width: 100%;
+	margin-bottom: 80px;
+	background: url("../img/bg.png") center no-repeat;
+	background-position-x: -1440px;
+	background-position-y: -1846px;; 
 	background-color: #f0f1f3;
 	color:#667073;
-	font: 16px/1.3 'Arial',sans-serif;
+	font-family: 'Bungee', cursive;
+	font-size: 12pt;
+	max-width: 100%;
+}
+
+#style-1::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #787B69;
+}
+
+#style-1::-webkit-scrollbar
+{
+	width: 14px;
+	background-color: #787B69;
+}
+
+#style-1::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #47493e;
 }
 
 
@@ -24,10 +53,11 @@ body {
 /* ------ Home ------ */
 
 .navbar {
-	height: 80px;
+	position: fixed;
+	top: 0;
 	width: 100%;
-	background-color: #47493e;
-	border-bottom: 4px solid #36372F;
+	height: 80px;  	
+	background-color: #333333;
 }
 
 li #logo {
@@ -35,11 +65,12 @@ li #logo {
 	color:white;
 	float: left;
 	font-size: 24pt;
-	padding-top: 10px;
+	padding-top: 0px;
 	padding-left: 2%;
+	margin-top: -8px;
 }
 
-#logo:visited {
+li #logo:visited {
 	color: white;
 }
 
@@ -55,7 +86,7 @@ li a {
 	font-size: 14pt;
 	float: right;
 	padding-left: 3%;
-	padding-top: 1.3%;
+	padding-top: 10px;
 }
 
 
@@ -65,55 +96,93 @@ li a {
 /* ------ Body ------ */
 
 
-.bodysection {
+.bodydiv {
 	text-align:center;
 	margin-top:40px;
 }
+h2 {
+	color: white;
+}
 
-.node {	
-	text-align:center;
-	margin-bottom:7%;
-}
-.node #chat {
+.bodydiv #chat {
 	color: white;
+	/*font-size: 20pt;*/
+	margin-top: -20px;
+	margin-bottom: 4%;
 }
-.node #aa {
+.bodydiv #aa {
 	color: white;
-	font-size: 20pt;
-	margin-bottom: 5%;
+	margin-bottom: 30px;
+	margin-top: 130px;
+	/*font-size: 20pt;*/
 }
 #nodelogo {
-	width: 30%;
+	width: 26%;
 	height: 20%;
-	margin-bottom: 5%;
+	margin-bottom: 14px;
 }
 
-#create {
+#join {
 	width: 250px;
 	height: 100px;
-	background-color: #3e8c74;
+	background-color: #008eff;
 	text-align:center;
 	display: block;
 	margin:0px auto;
 	border-radius: 5px;
 	text-decoration: none;
-	margin-bottom: 4%;
+	margin-bottom: 6%;
 	color: #eeffff;
 }
-#create:visited {
+#join:visited {
 	color: #eeffff;
 	text-decoration: none;
 }
-#createbutton {
+#joinbutton {
 	padding-top: 28px;
 }
 #little {
 	font-weight: normal;
-	font-size: 14px;
+	font-size: 10pt;
+	margin-bottom: -22px;
+    margin-top: -8px;
+
 }
 #big {
 	font-weight: bold;
-	font-size: 24px;
+	font-size: 18pt;
+}
+
+.error {
+	margin-top: 4%;
+	padding: 3%;
+	color: black;
 }
 
 
+/* -------- Footer -------- */
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 80px;  	
+	background-color: #333333;
+	color: white;
+	font-size: 14pt;
+}
+
+.copy {
+	padding-left: 2%;
+	margin-top: 18px;
+}
+
+#about a {
+	float: right;
+	padding-right: 3%;
+	text-decoration: none;
+	color: white;
+}
+#about:visited a {
+	color: white;
+}

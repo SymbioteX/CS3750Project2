@@ -4,7 +4,7 @@ html
     title Let's Chat!
     link(type='text/css', rel='stylesheet', href='../css/style.css')
     link(href='https://fonts.googleapis.com/css?family=Bungee', rel='stylesheet', type='text/css')
-  body
+  body#style-1
     header.navbar
       h1
         ul
@@ -16,13 +16,18 @@ html
                 a(href='/register') Register
             li
                 a(href='/create') Chat
-    section
-      .bodysection
-        .node
+    div
+      .bodydiv
           h2#aa A
           img#nodelogo(src='img/nodejslogo.png', alt='nodelogo')
-          h2#chat powered web chat
-        a#create(title='Create', href='/create')
-          #createbutton
+          h2 powered web
+          h2#chat chat
+        a#join(title='Create', href='/create')
+          #joinbutton
             #little Join a Private
             #big CHAT ROOM!
+    footer.footer
+        div
+            p.copy &copy; #{new Date().getFullYear()} - CS 3750 Group 4 
+                span#about 
+                    a(href='/') About
