@@ -2,7 +2,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/chat/id', function(req,res){
+router.get('/', function(req,res){
 
 		// Render the chat.jade view
 		res.render('chat');

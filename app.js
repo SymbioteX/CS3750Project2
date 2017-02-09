@@ -13,16 +13,20 @@ var schema = new mongoose.Schema({
   first_name: String,
   last_name: String,
   user_name:  String,
-  messages:  { 
-    msgs: { message: String }  
-  }
+  messages:  [{ 
+    content: { type: String },
+    date: {type: Date},
+  }]
 });
+
+var model = mongoose.model('users', schema);
+
+var users = new users();
 // ********************************
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var chat = require('./routes/chat');
-var create = require('./routes/create');
 
 var app = express();
 
@@ -40,7 +44,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/create', create);
 app.use('/chat', chat);
 
 // catch 404 and forward to error handler

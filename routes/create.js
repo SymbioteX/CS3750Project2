@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* create page that redirects to /chat/id */
-router.get('/create', function(req,res){
+router.get('/', function(req,res){
 
 		// Generate unique id for the room
 		var id = Math.round((Math.random() * 1000000));
