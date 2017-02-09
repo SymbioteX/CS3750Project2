@@ -212,7 +212,7 @@ h2 {
 
 .logindiv #login {
 	margin: auto;
-	width: 86%;
+	width: 88%;
 }
 
 #wc {
@@ -272,9 +272,8 @@ input[type=submit]:hover {
 
 #form_layout{
 	margin: 0 auto;
-    width: 68%;
     border-radius: 6px;
-    padding: 0px 55px 10px;
+    padding: 0px 50px 10px;
     background-color: #234ABC;
 	color: white;
     margin-bottom: 6%;
@@ -282,9 +281,8 @@ input[type=submit]:hover {
 
 #form_layout1{
 	margin: 0 auto;
-    width: 80%;
     border-radius: 6px;
-    padding: 0px 55px 10px;
+    padding: 0px 50px 10px;
     background-color: #234ABC;
 	color: white;
     margin-bottom: 5%;
@@ -313,6 +311,12 @@ input[type=submit]:hover {
 	text-align: center;
 	margin-bottom: 2%;
 }
+
+.registerdiv #register {
+	margin: auto;
+	width: 88%;
+}
+
 
 .submitdiv {
 	margin: auto;
