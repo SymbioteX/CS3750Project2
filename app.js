@@ -12,16 +12,17 @@ mongoose.connect('mongodb://localhost/project2');
 var schema = new mongoose.Schema({
   first_name: String,
   last_name: String,
-  user_name:  String,
+  email:  String,
+  password: String,
   messages:  [{ 
     content: { type: String },
-    date: {type: Date},
+    date: {type: Date}
   }]
 });
 
 var model = mongoose.model('users', schema);
 
-var users = new users();
+//var users = new users();
 // ********************************
 
 var index = require('./routes/index');
