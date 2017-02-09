@@ -3,7 +3,7 @@
 * {
 	padding: 0;
 	margin: 0;
-	font-family: 'Bungee', cursive;
+	font-family: 'Bungee Inline', cursive;
 }
 
 
@@ -16,35 +16,38 @@ html {
 body {
 	height: 100%;
 	width: 100%;
-	margin-bottom: 80px;
+	margin-bottom: 70px;
 	background: url("../img/bg.png") center no-repeat;
 	background-position-x: -1440px;
 	background-position-y: -1846px;; 
 	background-color: #f0f1f3;
 	color:#667073;
-	font-family: 'Bungee', cursive;
+	font-family: 'Bungee Inline', cursive;
 	font-size: 12pt;
 	max-width: 100%;
 }
 
+
+/* --------- Scrollbar styles --------- */
+
 #style-1::-webkit-scrollbar-track
 {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	border-radius: 10px;
-	background-color: #787B69;
+	background-color: #fff;
 }
 
 #style-1::-webkit-scrollbar
 {
 	width: 14px;
-	background-color: #787B69;
+	background-color: #ffffff;
 }
 
 #style-1::-webkit-scrollbar-thumb
 {
 	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #47493e;
+	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #2d7e5e;
 }
 
 
@@ -56,22 +59,35 @@ body {
 	position: fixed;
 	top: 0;
 	width: 100%;
-	height: 80px;  	
-	background-color: #333333;
+	height: 70px;  	
+	background-color: rgba(51, 51, 51, 0);
 }
 
+li a {
+	color: white;
+	text-decoration: none;
+	font-size: 14pt;
+	float: right;
+	padding-left: 3%;
+	padding-top: 4px;
+}
+li :hover {
+	color: #19FF8B;
+}
 li #logo {
 	text-decoration: none;
 	color:white;
 	float: left;
-	font-size: 24pt;
+	font-size: 30pt;
 	padding-top: 0px;
 	padding-left: 2%;
-	margin-top: -8px;
+	line-height: 50px;
 }
-
 li #logo:visited {
 	color: white;
+}
+li #logo:hover {
+	color: #19FF8B;
 }
 
 ul {
@@ -79,14 +95,6 @@ ul {
 	top: 10px;
 	width: 97%;
     list-style-type: none;
-}
-li a {
-	color: white;
-	text-decoration: none;
-	font-size: 14pt;
-	float: right;
-	padding-left: 3%;
-	padding-top: 10px;
 }
 
 
@@ -133,24 +141,27 @@ h2 {
 	text-decoration: none;
 	margin-bottom: 6%;
 	color: #eeffff;
+	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.7);
+}
+#join:hover {
+	background-color: #0081E4;
 }
 #join:visited {
 	color: #eeffff;
 	text-decoration: none;
 }
 #joinbutton {
-	padding-top: 28px;
+	padding-top: 26px;
 }
 #little {
 	font-weight: normal;
 	font-size: 10pt;
-	margin-bottom: -22px;
-    margin-top: -8px;
-
+    line-height: 18px;
 }
 #big {
 	font-weight: bold;
 	font-size: 18pt;
+	line-height: 32px;
 }
 
 .error {
@@ -159,6 +170,31 @@ h2 {
 	color: black;
 }
 
+.info {
+	margin: auto;
+	padding: 40px;
+	height: 20%;
+	width: 40%;
+	border-radius: 6px;
+	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.5);
+	background-color: rgba(246,246,246, 1);
+	margin-bottom: 8%;
+}
+.info p {
+	margin: auto;
+	color: #0d625f;
+	font-family: "Varela Round", sans-serif;
+	font-size: 14pt;
+	line-height: 40px;
+	text-align: left;
+}
+.info p#getstarted {
+	padding-top: 6%;
+	font-size: 16pt;
+	text-align: center;
+}
+
+
 
 /* -------- Footer -------- */
 
@@ -166,15 +202,15 @@ h2 {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	height: 80px;  	
-	background-color: #333333;
+	height: 70px;  	
+	background-color: rgba(51, 51, 51, 0);
 	color: white;
 	font-size: 14pt;
 }
 
 .copy {
 	padding-left: 2%;
-	margin-top: 18px;
+	margin-top: 12px;
 }
 
 #about a {
@@ -185,4 +221,7 @@ h2 {
 }
 #about:visited a {
 	color: white;
+}
+#about :hover {
+	color: #19FF8B;
 }

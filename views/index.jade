@@ -3,7 +3,9 @@ html
   head
     title Let's Chat!
     link(type='text/css', rel='stylesheet', href='../css/style.css')
-    link(href='https://fonts.googleapis.com/css?family=Bungee', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Bungee+Inline', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Maven+Pro', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Varela+Round', rel='stylesheet', type='text/css')
   body#style-1
     header.navbar
       h1
@@ -16,16 +18,21 @@ html
                 a(href='/register') Register
             li
                 a(href='/create') Chat
-    div
-      .bodydiv
-          h2#aa A
-          img#nodelogo(src='img/nodejslogo.png', alt='nodelogo')
-          h2 powered web
-          h2#chat chat
+    div.bodydiv
+        h2#aa A
+        img#nodelogo(src='img/nodejslogo1.png', alt='nodelogo')
+        h2 web chat
+        h2#chat app
         a#join(title='Create', href='/create')
           #joinbutton
             #little Join a Private
             #big CHAT ROOM!
+        div.info
+            p Let's Chat!&reg; is a new application that allows you to create private chat rooms 
+                | where you can chat with your friends! 
+                p Simply create an account by clicking 'Register', fill out the form, then click 
+                    |'Login', and enter your username and password. You're in!
+                p#getstarted Get Started today! It's FREE and Easy!
     footer.footer
         div
             p.copy &copy; #{new Date().getFullYear()} - CS 3750 Group 4 

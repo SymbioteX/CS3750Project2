@@ -10,11 +10,11 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/project2');
 
 var schema = new mongoose.Schema({
+  first_name: String,
+  last_name: String,
   user_name:  String,
-  author_name: String,
   messages:  { 
-    msgs: { message: String },
-    date: { type: Date, default: Date.now }
+    msgs: { message: String }  
   }
 });
 // ********************************
