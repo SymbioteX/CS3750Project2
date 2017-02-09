@@ -3,7 +3,7 @@
 * {
 	padding: 0;
 	margin: 0;
-	font-family: 'Bungee Inline', cursive;
+	font-family: 'Bungee', cursive;
 }
 
 
@@ -22,7 +22,7 @@ body {
 	background-position-y: -1846px;; 
 	background-color: #f0f1f3;
 	color:#667073;
-	font-family: 'Bungee Inline', cursive;
+	font-family: 'Bungee', cursive;
 	font-size: 12pt;
 	max-width: 100%;
 }
@@ -111,7 +111,6 @@ ul {
 h2 {
 	color: white;
 }
-
 .bodydiv #chat {
 	color: white;
 	/*font-size: 20pt;*/
@@ -183,7 +182,7 @@ h2 {
 .info p {
 	margin: auto;
 	color: #0d625f;
-	font-family: "Varela Round", sans-serif;
+	/*font-family: "Varela Round", sans-serif;*/
 	font-size: 14pt;
 	line-height: 40px;
 	text-align: left;
@@ -192,6 +191,135 @@ h2 {
 	padding-top: 6%;
 	font-size: 16pt;
 	text-align: center;
+}
+
+
+/* -------- Login Page -------- */
+
+.logindiv {
+	margin: auto;
+	padding: 40px;
+	border-radius: 6px;
+	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.5);
+	background-color: rgba(246,246,246, 1);
+	margin-top: 10%;
+	margin-bottom: 8%;
+	width: 40%;
+	height: 30%;
+	background-color: white;
+	color: #0d625f;
+}
+
+.logindiv #login {
+	margin: auto;
+	width: 86%;
+}
+
+#wc {
+	font-size: 20pt;
+	text-align: center;
+	line-height: 50px;
+}
+
+.logindiv #ac {
+	font-size: 20pt;
+	text-align: center;
+	margin-bottom: 4%;
+}
+
+input[type=text], input[type=email]{
+	width:96%;
+	padding: 10px 4px 6px 10px;
+	margin-bottom: 10px;
+	border: 0px;
+	font-size: 14pt;
+	font-family: 'Varela Round', sans-serif;
+}
+
+input[type=password]{
+	width:96%;
+	padding: 2px 10px 2px 10px;
+	margin-bottom: 10px;
+	border: 0px;
+	padding-left: 5px;
+	font-size: 20pt;
+	font-family: 'Varela Round', sans-serif;
+}
+
+input[type=submit]{
+	width: 50%;
+	background-color:#2E8B57;
+	color: white;
+	border: 2px solid #297c5e;
+	font-size:16pt;
+	cursor:pointer;
+	border-radius: 7px;
+	margin-top: 30px;
+	margin-bottom: 18px;
+	text-align: center;
+}
+
+input[type=submit]:hover {
+	background-color: #297c5e;
+}
+
+.submitdiv {
+	margin: auto;
+}
+
+#form_layout{
+	margin: 0 auto;
+    width: 65%;
+    border-radius: 6px;
+    padding: 0px 55px 10px;
+    background-color: #234ABC;
+	color: white;
+    margin-bottom: 7%;
+}
+
+#form_layout1{
+	margin: 0 auto;
+    width: 77%;
+    border-radius: 6px;
+    padding: 0px 55px 10px;
+    background-color: #234ABC;
+	color: white;
+    margin-bottom: 7%;
+}
+
+
+/* -------- Register Page -------- */
+
+
+.registerdiv {
+	margin: auto;
+	padding: 40px;
+	border-radius: 6px;
+	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.5);
+	background-color: rgba(246,246,246, 1);
+	margin-top: 8%;
+	margin-bottom: 4%;
+	width: 46%;
+	height: 30%;
+	background-color: white;
+	color: #0d625f;
+}
+
+.registerdiv #ac {
+	font-size: 20pt;
+	text-align: center;
+	margin-bottom: 2%;
+}
+
+.submitdiv {
+	margin: auto;
+    width: 70%;
+    border-radius: 14px;
+}
+
+.center {
+	margin: auto;
+    text-align: center;
 }
 
 

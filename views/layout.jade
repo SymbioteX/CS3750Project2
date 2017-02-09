@@ -1,9 +1,12 @@
 doctype html
 html
+  block variables
   head
-    title Let's Chat!
-    link(type='text/css', rel='stylesheet', href='../css/style.css')
-    link(href='https://fonts.googleapis.com/css?family=Bungee+Inline', rel='stylesheet', type='text/css')
+    -var title = title || "Let's Chat!"
+    title #{title}
+    script(src='../js/validation.js')
+    link(href='../css/style.css', type='text/css', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Bungee', rel='stylesheet', type='text/css')
     link(href='https://fonts.googleapis.com/css?family=Varela+Round', rel='stylesheet', type='text/css')
   body#style-1
     header.navbar
