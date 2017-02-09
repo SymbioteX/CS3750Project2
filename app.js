@@ -21,7 +21,7 @@ var schema = new mongoose.Schema({
 
 var model = mongoose.model('users', schema);
 
-var users = new users();
+//var users = new users();
 // ********************************
 
 var index = require('./routes/index');
