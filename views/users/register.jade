@@ -10,14 +10,17 @@ block content
             div#form_layout
                 form(name='createaccount')
                     br
+                    label Screen Name (username):
+                    input(type='text', required='', autocomplete='', onsubmit='')
+                    br
+                    label Email Address:
+                    input(type='email', required='', autocomplete='', onsubmit='return emailValidation(this.value)')
+                    br
                     label First Name:
                     input(type='text', required='', autocomplete='')
                     br
                     label Last Name:
                     input(type='text', required='', autocomplete='')
-                    br
-                    label Email (username):
-                    input(type='email', required='', autocomplete='', onsubmit='return emailValidation(this.value)')
                     br
                     label Password:
                     input#password(type='password', required='', autocomplete='', onsubmit='return passwordValidation(this.value)')

@@ -17,10 +17,10 @@ body {
 	height: 100%;
 	width: 100%;
 	margin-bottom: 70px;
-	background: url("../img/bg.png") center no-repeat;
+	background: url("../img/bg.png") center;
 	background-position-x: -1440px;
-	background-position-y: -1846px;; 
-	background-color: #f0f1f3;
+	background-position-y: -1846px;
+	background-color: #287b5e;
 	color:#667073;
 	font-family: 'Bungee', cursive;
 	font-size: 12pt;
@@ -329,6 +329,49 @@ input[type=submit]:hover {
     text-align: center;
 }
 
+
+
+
+/* -------- Chat Page -------- */
+
+.chatbox {
+	position: relative;
+	margin: auto;
+	width: 70%;
+	padding: 40px;
+	border-radius: 6px;
+	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.5);
+	margin-top: 100px;
+	margin-bottom: 2%;
+	background-color: white;
+	color: #0d625f;
+	min-height: 500px;
+}
+
+.stickybar {
+   	position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 3%;
+}
+
+.stickybar input[type=text] {
+	width: 84%; 
+	font-size: 12pt;
+	border-radius: 6px;
+	padding: 6px;
+    margin: 0;
+    border: 5px solid #2E8B57;
+}
+
+.stickybar #submit {
+	width: 12%;
+    height: 42px;
+    float: right;
+    margin: 0;
+    line-height: 38px;
+	
+}
 
 
 /* -------- Footer -------- */
