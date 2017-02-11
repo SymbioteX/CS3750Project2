@@ -1,5 +1,6 @@
 
 function passwordValidation() {
+	console.log("I'm in passwordvalidation");
 	var password = document.getElementById('password');
 	if(password.value.length == 0) {
 		alert("Password cannot be blank.");
@@ -17,6 +18,7 @@ function passwordValidation() {
 }
 
 function cpasswordValidation(str) {
+	console.log("I'm in cpasswordvalidation");
 	var cpassword = document.getElementById('cpassword');
 	if(cpassword.value.length == 0) {
 		alert("Confirm Password cannot be blank.");
@@ -33,7 +35,9 @@ function cpasswordValidation(str) {
 	}
 }
 
+
 function emailValidation(inputtext) {
+	console.log("I'm in email validation");
 	if(inputtext.value.length == 0) {
 		alert("Email cannot be blank.");
 		inputtext.focus();
@@ -48,3 +52,30 @@ function emailValidation(inputtext) {
 		return false;
 	}
 }
+
+
+function validateForm() 
+{
+	//var cpassword = document.getElementById('cpassword');
+	console.log("I'm in validate form");
+}
+
+/*
+function validateForm() {
+	console.log("I'm in validate form");
+	var x = document.getElementById('test').value;
+	if (x == null || x == 0 || x == "0") {
+		alert("Stop");
+	}
+	else
+		document.form.submit();
+		
+	
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+	
+}
+*/
