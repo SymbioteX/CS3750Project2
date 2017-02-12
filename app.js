@@ -7,15 +7,14 @@ var bodyParser = require('body-parser');
 
 // added ***************************
 var mongoose = require('mongoose');
-//mongoose.connect('mongodb://localhost/test');
-mongoose.connect('mongodb://localhost/project3');
+mongoose.connect('mongodb://localhost/project2');
 var db = mongoose.connection;
 
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   // we're connected!
-  console.log("You're connected to the db");
+  console.log("You're connected to the project 2 db");
 });
 /*
 var kittySchema = mongoose.Schema({
@@ -50,23 +49,23 @@ Kitten.find(function(err, kittens)
 
 var schema = new mongoose.Schema({
   username: String,
+  email:  String,
   first_name: String,
   last_name: String,
-  email:  String,
   password: String,
   messages:  [{ 
     content: { type: String },
-    date: {type: Date}
+    date: { type: Date, default: Date.now }
   }]
 });
 
 var User = mongoose.model('users', schema);
 
 
-
+/*
 var brady = new User({ username:'bradyadair', first_name:'James', last_name:'Adair', email:'something@hotmail.com', password:'mypassword'});
 console.log(brady.first_name);
-
+*/
 /*silence.speak();
 */
 /*
@@ -93,10 +92,6 @@ User.find(function(err, users)
 
 })
 
-
-
-
-//var users = new users();
 // ********************************
 
 var index = require('./routes/index');
@@ -125,11 +120,11 @@ app.use('/chat', chat);
 app.all('/users/login', function(req,res){
   res.render('users/login');
   console.log(req.body); //body
-  var user = new User({ username:req.body.username, 
-    first_name:req.body.first_name, 
-    last_name:req.body.last_name, 
-    email:req.body.email, 
-    password:req.body.password});
+  var user = new User({ username: req.body.username, 
+    first_name: req.body.first_name, 
+    last_name: req.body.last_name, 
+    email: req.body.email, 
+    password: req.body.password});
   
   user.save(function(err, brady){
   if(err) return console.error(err);
@@ -170,7 +165,6 @@ app.post('/users/register', function(req, res) {
   console.log(req.body);
 });
 */
-
 
 
 module.exports = app;
