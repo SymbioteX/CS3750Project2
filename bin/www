@@ -7,6 +7,8 @@
 var app = require('../app');
 var debug = require('debug')('project2:server');
 var http = require('http');
+var socket = require('socket.io')(http); //like a #include statement
+var socketController = require('../routes/socket');
 
 /**
  * Get port from environment and store in Express.
@@ -21,6 +23,8 @@ console.log('Your application is running on http://localhost:' + port);
  */
 
 var server = http.createServer(app);
+var io = socket(server);
+socketController(io);
 
 /**
  * Listen on provided port, on all network interfaces.
