@@ -1,22 +1,8 @@
-doctype html
-html
-  head
-    title Let's Chat!
-    link(type='text/css', rel='stylesheet', href='../css/style.css')
-    link(href='https://fonts.googleapis.com/css?family=Bungee+Inline', rel='stylesheet', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Varela+Round', rel='stylesheet', type='text/css')
-  body#style-1
-    header.navbar
-      h1
-        ul
-            li
-                a#logo(href='/') Let's Chat!
-            li
-                a(href='/login') Login
-            li
-                a(href='/register') Register
-            li
-                a(href='/chat') Chat
+block variables
+    title Home | Let's Chat
+extends layout
+
+block content
     div.bodydiv
         h2#aa A
         img#nodelogo(src='img/nodejslogo1.png', alt='nodelogo')
@@ -32,8 +18,3 @@ html
                 p Simply create an account by clicking 'Register', fill out the form, then click 
                     |'Login', and enter your username and password. You're in!
                 p#getstarted Get Started today! It's FREE and Easy!
-    footer.footer
-        div
-            p.copy &copy; #{new Date().getFullYear()} - CS 3750 Group 4 
-                span#about 
-                    a(href='/') About

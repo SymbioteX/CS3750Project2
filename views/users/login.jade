@@ -1,3 +1,21 @@
+block variables
+    title Login | Let's Chat
 extends ../layout
 
 block content
+    div.logindiv
+        div#login
+            h5#wc Welcome!
+            h5#ac Please Login:
+            div#form_layout1
+                form(name='login')
+                    br
+                    label Screen Name (username):
+                    input(type='text', required='', autocomplete='', onsubmit='return emailValidation(this.value)')
+                    br
+                    label Password:
+                    input(type='password', required='', autocomplete='', onsubmit='return passwordValidation(this.value)')
+                    br
+                    div.submitdiv
+                        div.center
+                            input(type="submit" id="submit" value="Login")

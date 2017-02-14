@@ -1,5 +1,11 @@
+block variables
+    title Chat | Let's Chat
 extends layout
 
 block content
-    
-
+    div.chatbox
+        block insertmsgs
+        
+        div.stickybar
+            input(type='text')
+            input(type='submit' id='submit' value='Send')

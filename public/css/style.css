@@ -3,7 +3,7 @@
 * {
 	padding: 0;
 	margin: 0;
-	font-family: 'Bungee Inline', cursive;
+	font-family: 'Bungee', cursive;
 }
 
 
@@ -17,12 +17,12 @@ body {
 	height: 100%;
 	width: 100%;
 	margin-bottom: 70px;
-	background: url("../img/bg.png") center no-repeat;
+	background: url("../img/bg.png") center;
 	background-position-x: -1440px;
-	background-position-y: -1846px;; 
-	background-color: #f0f1f3;
+	background-position-y: -1846px;
+	background-color: #287b5e;
 	color:#667073;
-	font-family: 'Bungee Inline', cursive;
+	font-family: 'Bungee', cursive;
 	font-size: 12pt;
 	max-width: 100%;
 }
@@ -111,7 +111,6 @@ ul {
 h2 {
 	color: white;
 }
-
 .bodydiv #chat {
 	color: white;
 	/*font-size: 20pt;*/
@@ -178,12 +177,12 @@ h2 {
 	border-radius: 6px;
 	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.5);
 	background-color: rgba(246,246,246, 1);
-	margin-bottom: 8%;
+	margin-bottom: 6%;
 }
 .info p {
 	margin: auto;
 	color: #0d625f;
-	font-family: "Varela Round", sans-serif;
+	/*font-family: "Varela Round", sans-serif;*/
 	font-size: 14pt;
 	line-height: 40px;
 	text-align: left;
@@ -194,6 +193,185 @@ h2 {
 	text-align: center;
 }
 
+
+/* -------- Login Page -------- */
+
+.logindiv {
+	margin: auto;
+	width: 40%;
+	height: 30%;
+	padding: 40px;
+	border-radius: 6px;
+	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.5);
+	background-color: rgba(246,246,246, 1);
+	margin-top: 7%;
+	margin-bottom: 1%;
+	background-color: white;
+	color: #0d625f;
+}
+
+.logindiv #login {
+	margin: auto;
+	width: 88%;
+}
+
+#wc {
+	font-size: 20pt;
+	text-align: center;
+	line-height: 34px;
+}
+
+.logindiv #ac {
+	font-size: 20pt;
+	text-align: center;
+	margin-bottom: 3%;
+}
+
+
+/* -------- Form Elements -------- */
+
+input[type=text], input[type=email]{
+	width:96%;
+	padding: 10px 4px 6px 10px;
+	margin-bottom: 10px;
+	border: 0px;
+	font-size: 14pt;
+	font-family: 'Varela Round', sans-serif;
+}
+
+input[type=password]{
+	width:96%;
+	padding: 2px 10px 2px 10px;
+	margin-bottom: 10px;
+	border: 0px;
+	padding-left: 5px;
+	font-size: 20pt;
+	font-family: 'Varela Round', sans-serif;
+}
+
+input[type=submit]{
+	width: 50%;
+	background-color:#2E8B57;
+	color: white;
+	border: 2px solid #297c5e;
+	font-size:16pt;
+	cursor:pointer;
+	border-radius: 7px;
+	margin-top: 30px;
+	margin-bottom: 18px;
+	text-align: center;
+}
+
+input[type=submit]:hover {
+	background-color: #297c5e;
+}
+
+.submitdiv {
+	margin: auto;
+}
+
+#form_layout{
+	margin: 0 auto;
+    border-radius: 6px;
+    padding: 0px 50px 10px;
+    background-color: #234ABC;
+	color: white;
+    margin-bottom: 6%;
+}
+
+#form_layout1{
+	margin: 0 auto;
+    border-radius: 6px;
+    padding: 0px 50px 10px;
+    background-color: #234ABC;
+	color: white;
+    margin-bottom: 5%;
+}
+
+
+/* -------- Register Page -------- */
+
+
+.registerdiv {
+	margin: auto;
+	width: 40%;
+	height: 30%;
+	padding: 40px;
+	border-radius: 6px;
+	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.5);
+	background-color: rgba(246,246,246, 1);
+	margin-top: 7%;
+	margin-bottom: 4%;
+	background-color: white;
+	color: #0d625f;
+}
+
+.registerdiv #ac {
+	font-size: 20pt;
+	text-align: center;
+	margin-bottom: 2%;
+}
+
+.registerdiv #register {
+	margin: auto;
+	width: 88%;
+}
+
+
+.submitdiv {
+	margin: auto;
+    width: 70%;
+    border-radius: 14px;
+}
+
+.center {
+	margin: auto;
+    text-align: center;
+}
+
+
+
+
+/* -------- Chat Page -------- */
+
+.chatbox {
+	position: relative;
+	margin: auto;
+	width: 70%;
+	padding: 40px;
+	border-radius: 6px;
+	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.5);
+	margin-top: 100px;
+	margin-bottom: 2%;
+	background-color: white;
+	color: #0d625f;
+	min-height: 500px;
+}
+
+.stickybar {
+   	position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 3%;
+}
+
+.stickybar input[type=text] {
+	width: 84%; 
+	font-size: 12pt;
+	border-radius: 6px;
+	padding: 6px;
+    margin: 0;
+    border: 5px solid #2E8B57;
+}
+
+.stickybar #submit {
+	width: 12%;
+    height: 42px;
+    float: right;
+    margin: 0;
+    line-height: 38px;
+	
+}
 
 
 /* -------- Footer -------- */
