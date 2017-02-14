@@ -116,6 +116,9 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/chat', chat);
 
+app.all('/', function(req,res){
+  res.render('chat');
+})
 
 app.all('/users/login', function(req,res){
   res.render('users/login');

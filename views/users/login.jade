@@ -8,7 +8,7 @@ block content
             h5#wc Welcome!
             h5#ac Please Login:
             div#form_layout1
-                form(name='login')
+                form(action='/', method="post" name='login')
                     br
                     label Screen Name (username):
                     input(type='text', required='', autocomplete='', onsubmit='return emailValidation(this.value)')
