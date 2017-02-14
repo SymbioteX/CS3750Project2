@@ -3,9 +3,10 @@ block variables
 extends layout
 
 block content
-    div.chatbox
-        block insertmsgs
-        
-        div.stickybar
-            input(type='text')
-            input(type='submit' id='submit' value='Send')
+    .chat
+      input.chat-name(type='text', placeholder='Enter Your Name')
+      .chat-messages
+      textarea.chat-textarea(placeholder='Type your message')
+      .chat-status
+        | Status: 
+        span Idle
