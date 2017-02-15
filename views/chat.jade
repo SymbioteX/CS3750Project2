@@ -10,3 +10,9 @@ block content
       .chat-status
         | Status: 
         span Idle
+
+        script.
+  var chat = io.connect('http://localhost/chat')
+  chat.on('connect', function () {
+  chat.emit('hi!');
+  });

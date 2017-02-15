@@ -16,6 +16,11 @@ db.once('open', function() {
   // we're connected!
   console.log("You're connected to the project 2 db");
 });
+
+//chat
+
+
+
 /*
 var kittySchema = mongoose.Schema({
   name: String
