@@ -3,9 +3,17 @@ block variables
 extends layout
 
 block content
-    div.chatbox
-        block insertmsgs
-        
-        div.stickybar
-            input(type='text')
-            input(type='submit' id='submit' value='Send')
+    .chat
+      input#chat-name(type='text', placeholder='Enter Your Name')
+      div#chat-messages
+      textarea#chat-textarea(placeholder='Type your message')
+      input#send(type='button', value='send')
+      .chat-status
+        | Status: 
+        span Idle
+      
+
+    script(src='../js/chat.js', type='text/javascript')
+    script(src='http://localhost:3700/socket.io/socket.io.js')
+
+    
