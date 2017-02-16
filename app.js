@@ -115,6 +115,7 @@ User.remove(function(err, users)
 */
 
 
+
 User.find(function(err, users)
 {
   if(err) return console.error(err);
@@ -122,6 +123,7 @@ User.find(function(err, users)
     console.log(users);
 
 })
+
 
 // ********************************
 
@@ -147,33 +149,13 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/chat', chat);
 
+/*
 app.all('/', function(req,res){
   res.render('chat');
 })
+*/
 
-app.all('/users/register', function(req,res){
-  res.render('users/register');
 
-  console.log(req.body); //body
-  var user = new User({ username: req.body.username, 
-    first_name: req.body.first_name, 
-    last_name: req.body.last_name, 
-    email: req.body.email, 
-    password: req.body.password});
-  
-  user.save(function(err, brady){
-  if(err) return console.error(err);
-    //console.log(user.first_name, user.last_name, user.email, user.password);
-  });
-
-  User.find(function(err, users)
-  {
-    if(err) return console.error(err);
-
-    console.log(users);
-
-  })
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
