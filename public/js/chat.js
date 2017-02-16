@@ -1,3 +1,4 @@
+
 window.onload = function() {
 
     var messages = [];
@@ -12,7 +13,7 @@ window.onload = function() {
             messages.push(data);
             var html = '';
             for(var i=0; i<messages.length; i++) {
-                html += '<b>' + (messages[i].username ? messages[i].username : 'Server') + ': </b>';
+                html += '<strong>' + (messages[i].username ? messages[i].username : 'Server') + ': </strong>';
                 html += messages[i].message + '<br />';
             }
             chat.innerHTML = html;
@@ -24,9 +25,12 @@ window.onload = function() {
     sendButton.onclick = function() {
         if(name.value == "") {
             alert("Please type your name!");
+            name.focus();
         } else {
             var text = field.value;
             socket.emit('send', { message: text, username: name.value });
+            field.value = "";
+            field.focus();
         }
     };
 
