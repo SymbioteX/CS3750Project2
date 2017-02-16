@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var jade = require('jade');
 
 // tokens
 var jwt = require('jsonwebtoken');
@@ -19,6 +20,33 @@ db.once('open', function() {
   // we're connected!
   console.log("You're connected to the project 2 db");
 });
+
+//chat server
+var express = require("express");
+var app = express();
+var port = 3700;
+
+app.get("/", function(req, res){
+    res.send("It works!");
+});
+
+var io = require('socket.io').listen(app.listen(port));
+console.log("Listening on port " + port);
+
+//connection handler
+io.sockets.on('connection', function (socket) {
+    socket.emit('message', { message: 'welcome to the chat' });
+    socket.on('send', function (data) {
+        io.sockets.emit('message', data);
+    });
+});
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    console.log('message: ' + msg);
+  });
+});
+
 /*
 var kittySchema = mongoose.Schema({
   name: String
@@ -125,6 +153,7 @@ app.all('/', function(req,res){
 
 app.all('/users/register', function(req,res){
   res.render('users/register');
+
   console.log(req.body); //body
   var user = new User({ username: req.body.username, 
     first_name: req.body.first_name, 
