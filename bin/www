@@ -7,6 +7,8 @@
 var app = require('../app');
 var debug = require('debug')('project2:server');
 var http = require('http');
+
+
 //var socket = require('socket.io');
 //var socketController = require('../routes/socket');
 
@@ -24,6 +26,7 @@ console.log('Your application is running on http://localhost:' + port);
  */
 
 var server = http.createServer(app);
+
 //var io = socket(server);
 //socketController(io);
 

@@ -18,3 +18,17 @@ block content
                 p Simply create an account by clicking 'Register', fill out the form, then click 
                     |'Login', and enter your username and password. You're in!
                 p#getstarted Get Started today! It's FREE and Easy!
+
+
+//browser side only
+//use broadcasting on server side
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  var socket = io();
+  $('form').submit(function(){
+    socket.emit('chat message', $('#m').val());
+    $('#m').val('');
+    return false;
+  });
+</script>

@@ -1,4 +1,18 @@
+var form = document.getElementById("myForm");
+form.addEventListener("submit", function(evt){
 
+	var isCorrect =false;
+	
+	if (passwordValidation() && cpasswordValidation() && emailValidation())
+	{
+		isCorrect = true;
+	}
+
+	if (!isCorrect)
+	{
+		evt.preventDefault();
+	}
+})
 function passwordValidation() {
 	console.log("I'm in passwordvalidation");
 	var password = document.getElementById('password');
@@ -15,6 +29,7 @@ function passwordValidation() {
 		password.focus();
 		return false;
 	}
+	return true;
 }
 
 function cpasswordValidation(str) {
@@ -33,6 +48,7 @@ function cpasswordValidation(str) {
 		password.focus();
 		return false;
 	}
+	return true;
 }
 
 
@@ -51,6 +67,7 @@ function emailValidation(inputtext) {
 		inputtext.focus();
 		return false;
 	}
+	return true;
 }
 
 
