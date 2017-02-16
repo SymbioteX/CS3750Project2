@@ -2,12 +2,11 @@
 var express = require('express');
 var router = express.Router();
 
+router.get('/', function(req, res, next) {
+  res.render('chat');
+});
 
-router.get('/', function(req,res){
 
-		// Render the chat.jade view
-		res.render('chat');
-	});
 
 module.exports = router;
 //module.exports = function (io){}
