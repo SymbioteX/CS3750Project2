@@ -337,7 +337,7 @@ input[type=submit]:hover {
 .chat {
 	position: relative;
 	margin: auto;
-	width: 70%;
+	width: 50%;
 	padding: 40px;
 	border-radius: 6px;
 	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.5);
@@ -346,7 +346,6 @@ input[type=submit]:hover {
 	background-color: white;
 	color: #0d625f;
 	min-height: 500px;
-  max-width:300px;
 }
 
 .chat-messages,
