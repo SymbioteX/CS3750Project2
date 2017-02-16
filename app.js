@@ -6,6 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jade = require('jade');
 
+// tokens
+var jwt = require('jsonwebtoken');
+
 // added ***************************
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/project2');
@@ -148,9 +151,9 @@ app.all('/', function(req,res){
   res.render('chat');
 })
 
+app.all('/users/register', function(req,res){
+  res.render('users/register');
 
-app.all('/users/login', function(req,res){
-  res.render('users/login');
   console.log(req.body); //body
   var user = new User({ username: req.body.username, 
     first_name: req.body.first_name, 
@@ -171,8 +174,6 @@ app.all('/users/login', function(req,res){
 
   })
 });
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

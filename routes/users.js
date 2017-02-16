@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+var jwt = require('jsonwebtoken');
+var User = require('../models/user');
+
 /* GET users listing. */
 router.get('/login', function(req, res, next) {
   res.render('users/login');
@@ -10,30 +13,33 @@ router.get('/register', function(req, res, next) {
   res.render('users/register');
 });
 
-/*
-//app
-router.all('/users/login', function(req,res){
-  res.render('users/login');
-  console.log(req.body); //body
-  var user = new User({ username: req.body.username, 
-    first_name: req.body.first_name, 
-    last_name: req.body.last_name, 
-    email: req.body.email, 
-    password: req.body.password});
-  
-  user.save(function(err, brady){
-  if(err) return console.error(err);
-    //console.log(user.first_name, user.last_name, user.email, user.password);
-  });
+router.post('/login', function(req, res) {
+  // find the user
+  User.findOne({
+    email: req.body.email
+  }, function(err, user) {
+    if (err) throw err;
 
-  User.find(function(err, users)
-  {
-    if(err) return console.error(err);
+    if (!user) {
+      res.json({ success: false, message: 'Authentication failed. User not found'});
+    } else if (user) {
+      // check pw
+      if (user.password != req.body.password) {
+        res.json({ success: false, message: 'Authentication failed. Wrong password'});
+      } else {
+        var token = jwt.sign( {username: user.username}, 'secret', {
+          expiresIn: "2h"
+        });
 
-    console.log(users);
+        res.json({
+          success: true,
+          message: 'Enjoy your token',
+          token: token
+        });
+      }
+    }   
+ });
+}); 
 
-  })
-});
-*/
 
 module.exports = router;
