@@ -120,7 +120,7 @@ app.all('/', function(req,res){
   res.render('chat');
 })
 
-/*
+
 app.all('/users/login', function(req,res){
   res.render('users/login');
   console.log(req.body); //body
@@ -143,7 +143,7 @@ app.all('/users/login', function(req,res){
 
   })
 });
-*/
+
 
 
 // catch 404 and forward to error handler
