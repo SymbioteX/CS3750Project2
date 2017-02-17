@@ -23,7 +23,7 @@ window.onload = function() {
         }
     });
 
-    var height = 47;
+    var height = 46;
 
     sendButton.onclick = function() {
         if(name.value == "") {
@@ -33,10 +33,12 @@ window.onload = function() {
             var text = field.value;
             socket.emit('send', { message: text, username: name.value });
             field.value = "";
-            field.focus();            
+            field.focus();
             
-            if(height > 6)
+            console.log(height);
+            if(height > 5)
                 document.getElementById('chat-area').style.marginTop = (height-=4) + "%";
+            window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeigh);
         }
     };
 
