@@ -5,7 +5,7 @@ window.onload = function() {
     var field = document.getElementById("chat-textarea");
     var sendButton = document.getElementById("send");
     var chat = document.getElementById("chat-messages");
-    var name = document.getElementById("chat-name");
+    //var name = document.getElementById("chat-name");
 
     socket.on('message', function (data) {
         if(data.message) {
@@ -22,12 +22,15 @@ window.onload = function() {
     });
 
     sendButton.onclick = function() {
+        /*
         if(name.value == "") {
             alert("Please type your name!");
-        } else {
-            var text = field.value;
-            socket.emit('send', { message: text, username: name.value });
+        } else {            
+            var text = field.value;            
+            socket.emit('send', { message: text, username: name.value });  
         }
+        */
+        socket.emit('send', { message: field.value });
     };
 
 }
