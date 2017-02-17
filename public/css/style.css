@@ -334,11 +334,12 @@ input[type=submit]:hover {
 	font-family: 'Bungee', sans-serif;
 }
 
-.errormsgs {
+span.errormsgs {
 	color: red;
 	line-height: 30px;
-	padding-left: 6%;
-	padding-bottom: 2%;
+	padding-left: 1%;
+	margin-top: -10px;
+	margin-bottom: 1%;
 }
 
 .errormsgs p {

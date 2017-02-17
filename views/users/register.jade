@@ -14,34 +14,33 @@ block content
                     br
                     label Screen Name (username):
                     input#username(name='username', type='text' )
+                    span.errormsgs#namelen #{usernameLength}
+                    span.errormsgs#nameinval #{invalidUsername}
                     br
                     label Email Address:
                     input#email(name='email', type='text')
+                    span.errormsgs #{emailLength}
+                    span.errormsgs #{invalidEmail}
                     //type='email'
                     br
                     label First Name:
                     input#firstname(name='first_name', type='text')
+                    span.errormsgs #{firstnameLength}
                     br
                     label Last Name:
                     input#lastname(name='last_name', type='text')
-                    br                
+                    span.errormsgs #{lastnameLength}
+                    br
                     label Password:
                     input#password(name='password', type='password')
+                    span.errormsgs #{passMatch}
+                    span.errormsgs #{passLength}
                     br
                     label Confirm Password:
                     input#cpassword(name='cpass', type='password')
+                    span.errormsgs #{cpassLength}
                     br
                     div.submitdiv
                         div.center
-                            input(type="submit" id="submit" value="Register")
-        div.errormsgs
-            p#errors #{errors}
-            p #{usernameLength}
-            p #{invalidUsername}
-            p #{emailLength}
-            p #{invalidEmail}
-            p #{firstnameLength}
-            p #{lastnameLength}
-            p #{passMatch}
-            p #{passLength}
-            p #{cpassLength}
+                            input(type="submit" id="submit" value="Register")           
+            

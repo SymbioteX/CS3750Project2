@@ -16,7 +16,7 @@ function passwordValidation() {
 
 	if(form.cpassword.value.length < 6) {
 		//alert("Confirm Password cannot be less than 6 characters.");
-		document.querySelector('.content .value').innerHTML += '<br /><br />Confirm Password cannot be less than 6 characters.';
+		document.querySelector('.content .value').innerHTML += '<br /><br />Password cannot be less than 6 characters.';
 		//password.focus();
 		passValid = false;
 	}

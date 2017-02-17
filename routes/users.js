@@ -39,7 +39,6 @@ router.post('/register', function(req,res){
   if (user.password != req.body.cpass)
   {
     myPassMatch = 'Passwords do not match'
-  
     isValid = false;
   }
 
@@ -51,7 +50,7 @@ router.post('/register', function(req,res){
 	}
 
 	if((req.body.cpass.toString()).length < 6) {
-		myCpassLength= 'Confirm Password cannot be less than 6 characters.';
+		myCpassLength= 'Password cannot be less than 6 characters.';
 		isValid = false;
 	}
 
@@ -75,12 +74,13 @@ router.post('/register', function(req,res){
 
 		isValid = false;
 	}
-	
-	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
-	if(user.email.match(emailExp)) {
-	} else {
-		myInvalidEmail = "Email is invalid. Please Try Again.";
-		isValid = false;
+	else {	
+      var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+      if(user.email.match(emailExp)) {
+      } else {
+        myInvalidEmail = "Email is invalid. Please Try Again.";
+        isValid = false;
+      }
 	}
 
 	if((user.first_name.toString()).length == 0) {
