@@ -33,7 +33,6 @@ router.post('/login', function(req, res, next) {
 
         var sess = req.session;
         sess.token = genToken;
-        sess.username = user.username;
 
         res.redirect('../chat');              
       }

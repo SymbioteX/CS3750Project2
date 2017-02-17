@@ -1,34 +1,38 @@
 // This file is executed in the browser, when people visit /chat/<random id>
 var express = require('express');
 var session = require('express-session');
-var router = express.Router();
-var app = express();
-var port = 3700;
+var jwt     = require('jsonwebtoken');
+var router  = express.Router();
+var io      = require('../models/chat');
 
-//router((req, res, next)=>{
+router.all('*', (req, res, next)=>{
     //check if token exists
+    var sess = req.session;    
     //if no token redirect to login
-    //if yes call next
-//});
+    // TODO: check valid token before next()
+    if (!sess.token) {
+      res.redirect('/users/login');
+    } else {
+      //if yes call next      
+      next();
+    }    
+});
 
 router.get('/', function(req, res, next) {
-  var sess = req.session;
 
-  var io = require('socket.io').listen(app.listen(port));
-  console.log("Listening on port " + port);
+  var sess = req.session;
+  var decodedToken = jwt.verify(sess.token, 'secret');
 
   //connection handler
-  io.sockets.on('connection', function (socket) {
+  io.on('connection', function (socket) {
     socket.emit('message', { message: 'welcome to the chat' });
     socket.on('send', function (data) {
-      io.sockets.emit('message', { username: sess.username, message: data.message });
+      io.emit('message', { username: decodedToken.username, message: data.message });
     });
   });
 
   res.render('chat');
 });
-
-
 
 module.exports = router;
 //module.exports = function (io){}

@@ -39,7 +39,8 @@ app.get("/", function(req, res){
 /*
 var io = require('socket.io').listen(app.listen(port));
 console.log("Listening on port " + port);
-
+*/
+/*
 //connection handler
 io.sockets.on('connection', function (socket) {
     socket.emit('message', { message: 'welcome to the chat' });
