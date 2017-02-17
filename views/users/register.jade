@@ -5,60 +5,43 @@ block scripts
     script(src='../js/validation.js', type='text/javascript')
 block content
     
-    div.registerdiv
-        div(style='color:red;') #{errors}
-        p
-        div(style='color:red;') #{passMatch}
-        p
-        div(style='color:red;') #{passLength}
-        p
-        div(style='color:red;') #{cpassLength}
-        p
-        div(style='color:red;') #{usernameLength}
-        p
-        div(style='color:red;') #{invalidUsername}
-        p
-        div(style='color:red;') #{emailLength}
-        p
-        div(style='color:red;') #{invalidEmail}
-        p
-        div(style='color:red;') #{firstnameLength}
-        p
-        div(style='color:red;') #{lastnameLength}
-        .content(style='color:red')
-            | 
-            span.value
+    div.registerdiv        
         div#register
             h5#wc Welcome!
             h5#ac Please Create a new account:
             div#form_layout
-
                 form(action="register", method="post", id="myForm")
-
-                
                     br
-                    
                     label Screen Name (username):
-                    input#username(name='username', type='text') 
-                    //,required=''
+                    input#username(name='username', type='text' )
                     br
                     label Email Address:
-                    input#email(name='email',type='text')
+                    input#email(name='email', type='text')
                     //type='email'
                     br
                     label First Name:
-                    input#firstname(name='first_name',type='text')
+                    input#firstname(name='first_name', type='text')
                     br
                     label Last Name:
-                    input#lastname(name='last_name',type='text')
-                    br
-                
+                    input#lastname(name='last_name', type='text')
+                    br                
                     label Password:
-                    input#password(name='password',type='password')
+                    input#password(name='password', type='password')
                     br
                     label Confirm Password:
-                    input#cpassword(name='cpass',type='password')
+                    input#cpassword(name='cpass', type='password')
                     br
                     div.submitdiv
                         div.center
                             input(type="submit" id="submit" value="Register")
+        div.errormsgs
+            p#errors #{errors}
+            p #{usernameLength}
+            p #{invalidUsername}
+            p #{emailLength}
+            p #{invalidEmail}
+            p #{firstnameLength}
+            p #{lastnameLength}
+            p #{passMatch}
+            p #{passLength}
+            p #{cpassLength}

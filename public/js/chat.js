@@ -7,7 +7,8 @@ window.onload = function() {
     var sendButton = document.getElementById("send");
     var chat = document.getElementById("chat-messages");
     var name = document.getElementById("chat-name");
-
+    name.focus();
+    
     socket.on('message', function (data) {
         if(data.message) {
             messages.push(data);
@@ -22,6 +23,8 @@ window.onload = function() {
         }
     });
 
+    var height = 47;
+
     sendButton.onclick = function() {
         if(name.value == "") {
             alert("Please type your name!");
@@ -30,7 +33,10 @@ window.onload = function() {
             var text = field.value;
             socket.emit('send', { message: text, username: name.value });
             field.value = "";
-            field.focus();
+            field.focus();            
+            
+            if(height > 6)
+                document.getElementById('chat-area').style.marginTop = (height-=4) + "%";
         }
     };
 

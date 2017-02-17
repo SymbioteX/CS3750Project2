@@ -48,36 +48,6 @@ io.on('connection', function(socket){
 });
 
 /*
-var kittySchema = mongoose.Schema({
-  name: String
-});
-
-kittySchema.methods.speak = function()
-{
-  var greeting = this.name
-    ? "Meow name is " + this.name
-    :"I don't have a name";
-    console.log(greeting);
-}
-var Kitten = mongoose.model('Kitten', kittySchema);
-
-var silence = new Kitten({ name:'Silence'});
-console.log(silence.name);
-silence.speak();
-
-silence.save(function(err, silence){
-  if(err) return console.error(err);
-  silence.speak();
-});
-
-Kitten.find(function(err, kittens)
-{
-  if(err) return console.error(err);
-  console.log(kittens);
-})
-*/
-
-
 var schema = new mongoose.Schema({
   username: String,
   email:  String,
@@ -92,38 +62,12 @@ var schema = new mongoose.Schema({
 
 var User = mongoose.model('users', schema);
 
-
-/*
-var brady = new User({ username:'bradyadair', first_name:'James', last_name:'Adair', email:'something@hotmail.com', password:'mypassword'});
-console.log(brady.first_name);
-*/
-/*silence.speak();
-*/
-/*
-brady.save(function(err, brady){
-  if(err) return console.error(err);
-  console.log(brady.first_name, brady.last_name, brady.email, brady.password);
-});
-*/
-/*
-User.remove(function(err, users)
-{
-    if(err) return console.error(err);
-
-    console.log(users);
-})
-*/
-
-
-
 User.find(function(err, users)
 {
-  if(err) return console.error(err);
-
+    if(err) return console.error(err);
     console.log(users);
-
 })
-
+*/
 
 // ********************************
 
@@ -154,8 +98,6 @@ app.all('/', function(req,res){
   res.render('chat');
 })
 */
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

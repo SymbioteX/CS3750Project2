@@ -259,6 +259,7 @@ input[type=submit]{
 	margin-top: 30px;
 	margin-bottom: 18px;
 	text-align: center;
+	cursor: pointer;
 }
 
 input[type=submit]:hover {
@@ -328,6 +329,21 @@ input[type=submit]:hover {
     text-align: center;
 }
 
+#errors {
+	font-size: 18pt;
+	font-family: 'Bungee', sans-serif;
+}
+
+.errormsgs {
+	color: red;
+	line-height: 30px;
+	padding-left: 6%;
+	padding-bottom: 2%;
+}
+
+.errormsgs p {
+	font-family: 'Varela Round', sans-serif;
+}
 
 
 
@@ -347,8 +363,9 @@ input[type=submit]:hover {
 	min-height: 500px;
 }
 
-.chat-area {
+#chat-area {
 	padding-left: 6px;
+	margin-top: 47%;
 }
 
 #chat-messages {
@@ -358,17 +375,17 @@ input[type=submit]:hover {
 	font-size: 14pt;
 	line-height: 26px;
     margin-bottom: 2%;
+	word-wrap: break-word;
 }
 
 strong #chat-messages {
-	font-size: 14pt;
-	line-height: 40px;
+	font-size: 14pt; 
 }
 
 .chat #chat-name {
 	font-family: 'Varela Round', sans-serif;
-  	width:96%;
-  	padding:10px;
+  	width: 96%;
+  	padding: 10px;
   	border-bottom: 2px solid black;
 	margin-bottom: 4%
 }
@@ -385,8 +402,9 @@ strong #chat-messages {
 	border: 2px solid #297c5e;
 	font-size: 14pt;
 	border-radius: 7px;
-	margin-top: 4%;
+	line-height: 42px;
 	text-align: center;
+	cursor: pointer;
 }
 
 #chat-textarea{
@@ -395,12 +413,14 @@ strong #chat-messages {
   max-width: 78%;
   font-family: 'Varela Round', sans-serif;
   font-size: 14pt;
-  height: auto;
+  min-height: 24px;
+  
   border-radius: 4px;
 }
 
 .chat-status {
-  color: #bbb
+  color: #bbb;
+  line-height: 14px;
 }
 
 input:focus {
