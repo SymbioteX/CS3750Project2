@@ -80,7 +80,7 @@ li #logo {
 	float: left;
 	font-size: 30pt;
 	padding-top: 0px;
-	padding-left: 2%;
+	padding-left: 20px;
 	line-height: 50px;
 }
 li #logo:visited {
@@ -93,7 +93,7 @@ li #logo:hover {
 ul {
 	position: fixed;
 	top: 10px;
-	width: 97%;
+	width: 98%;
     list-style-type: none;
 }
 
@@ -329,20 +329,12 @@ input[type=submit]:hover {
     text-align: center;
 }
 
-#errors {
-	font-size: 18pt;
-	font-family: 'Bungee', sans-serif;
-}
-
 span.errormsgs {
 	color: red;
 	line-height: 30px;
 	padding-left: 1%;
 	margin-top: -10px;
 	margin-bottom: 1%;
-}
-
-.errormsgs p {
 	font-family: 'Varela Round', sans-serif;
 }
 
@@ -353,7 +345,7 @@ span.errormsgs {
 .chat {
 	position: relative;
 	margin: auto;
-	width: 46%;
+	width: 48%;
 	padding: 40px;
 	border-radius: 6px;
 	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.5);
@@ -366,7 +358,7 @@ span.errormsgs {
 
 #chat-area {
 	padding-left: 6px;
-	margin-top: 46%;
+	margin-top: 320px; /*46%;*/
 	line-height: 20px;
 }
 
@@ -401,10 +393,10 @@ strong #chat-messages {
 	width: 16%;
 	background-color:#008eff;
 	color: white;
-	border: 2px solid #008eff;
+	border: 1px solid #008eff;
 	font-size: 14pt;
 	border-radius: 7px;
-	line-height: 42px;
+	line-height: 44px;
 	text-align: center;
 	cursor: pointer;
 }
@@ -427,6 +419,7 @@ strong #chat-messages {
 .chat-status {
   color: #bbb;
   margin-bottom: 10px;
+  padding-left: 4px;
 }
 
 input:focus {
@@ -477,7 +470,7 @@ textarea:focus {
 }
 
 .copy {
-	padding-left: 2%;
+	padding-left: 20px;
 	margin-top: 12px;
 }
 

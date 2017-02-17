@@ -23,7 +23,7 @@ window.onload = function() {
         }
     });
 
-    var height = 46;
+    var height = 320;
 
     sendButton.onclick = function() {
         if(name.value == "") {
@@ -36,9 +36,9 @@ window.onload = function() {
             field.focus();
             
             console.log(height);
-            if(height > 5)
-                document.getElementById('chat-area').style.marginTop = (height-=4) + "%";
-            window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeigh);
+            if(height > 28)
+                document.getElementById('chat-area').style.marginTop = (height-=20) + "px";
+            window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
         }
     };
 
