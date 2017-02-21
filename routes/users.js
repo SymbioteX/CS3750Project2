@@ -9,6 +9,10 @@ router.get('/login', function(req, res, next) {
   res.render('users/login');
 });
 
+router.get('/logout', function(req, res, next) {
+  res.render('users/login');
+});
+
 router.get('/register', function(req, res, next) {
   res.render('users/register');
 });
