@@ -97,7 +97,9 @@ ul {
     list-style-type: none;
 }
 
-
+#logout{
+	display: none;
+}
 
 /* ------------ Section styles ------------ */
 
@@ -225,6 +227,16 @@ h2 {
 	font-size: 20pt;
 	text-align: center;
 	margin-bottom: 3%;
+}
+
+#noaccnt{
+	float: right;
+	padding-right: 10px;
+	color: #234ABC;
+}
+
+#help{
+	padding-left: 10px;
 }
 
 
