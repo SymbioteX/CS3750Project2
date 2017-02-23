@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
-
-var jwt = require('jsonwebtoken');
-var User = require('../models/user');
+var express       = require('express');
+var session       = require('express-session');
+var jwt           = require('jsonwebtoken');
+var User          = require('../models/user');
+var router        = express.Router();
 
 /* GET users listing. */
 router.get('/login', function(req, res, next) {
@@ -16,6 +16,8 @@ router.get('/logout', function(req, res, next) {
 router.get('/register', function(req, res, next) {
   res.render('users/register');
 });
+
+//router.post('/login', function(req, res, next) {
 
 router.post('/register', function(req,res){
   
@@ -139,7 +141,7 @@ router.post('/login', function(req, res) {
   User.findOne({
     email: req.body.email
   }, function(err, user) {
-    if (err) throw err;
+    if (err) next(err);
 
     if (!user) {
       res.json({ success: false, message: 'Authentication failed. User not found'});
@@ -148,15 +150,14 @@ router.post('/login', function(req, res) {
       if (user.password != req.body.password) {
         res.json({ success: false, message: 'Authentication failed. Wrong password'});
       } else {
-        var token = jwt.sign( {username: user.username}, 'secret', {
+        var genToken = jwt.sign( {username: user.username}, 'secret', {
           expiresIn: "2h"
         });
 
-        res.json({
-          success: true,
-          message: 'Enjoy your token',
-          token: token
-        });
+        var sess = req.session;
+        sess.token = genToken;
+
+        res.redirect('../chat');              
       }
     }   
  });

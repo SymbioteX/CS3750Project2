@@ -6,14 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jade = require('jade');
 
-// tokens
-var jwt = require('jsonwebtoken');
-
 // added ***************************
+var session = require('express-session');
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/project2');
 var db = mongoose.connection;
-
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -22,17 +20,27 @@ db.once('open', function() {
 });
 
 //chat server
-var express = require("express");
+//var express = require("express");
 var app = express();
 var port = 3700;
 
+// session to store token
+app.use(session({
+  secret: 'group4',
+  resave: false,
+  saveUninitialized: false
+}));
+
+/*
 app.get("/", function(req, res){
     res.send("It works!");
 });
-
+*/
+/*
 var io = require('socket.io').listen(app.listen(port));
 console.log("Listening on port " + port);
-
+*/
+/*
 //connection handler
 io.sockets.on('connection', function (socket) {
     socket.emit('message', { message: 'Welcome to the chat!' });
@@ -40,13 +48,14 @@ io.sockets.on('connection', function (socket) {
         io.sockets.emit('message', data);
     });
 });
-
+*/
+/*
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     console.log('message: ' + msg);
   });
 });
-
+*/
 /*
 var schema = new mongoose.Schema({
   username: String,
@@ -75,7 +84,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var chat = require('./routes/chat');
 
-var app = express();
+//var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
