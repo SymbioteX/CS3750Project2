@@ -9,14 +9,14 @@ function passwordValidation() {
 	
 	if(form.password.value.length < 6) {
 		//alert("Password cannot be less than 6 characters.");
-		document.querySelector('.content .invalidPassword').innerHTML += 'Password cannot be less than 6 characters.';
+		document.querySelector('.content .invalidPassword').innerHTML = 'Password cannot be less than 6 characters.';
 		//password.focus();
 		passValid = false;
 	}
 
 	if(form.cpassword.value.length < 6) {
 		//alert("Confirm Password cannot be less than 6 characters.");
-		document.querySelector('.content .invalidCPassword').innerHTML += 'Password cannot be less than 6 characters.';
+		document.querySelector('.content .invalidCPassword').innerHTML = 'Password cannot be less than 6 characters.';
 		//password.focus();
 		passValid = false;
 	}
@@ -28,7 +28,7 @@ function passwordValidation() {
 	}
 	else
 	{
-		document.querySelector('.content .invalidPasswordMatch').innerHTML += 'passwords do not match.';
+		document.querySelector('.content .invalidPasswordMatch').innerHTML = 'passwords do not match.';
 
 		//console.log("passwords do not match");
 		passValid = false;
@@ -59,7 +59,7 @@ function usernameValidation() {
 	{
 	} 
 	else {
-		document.querySelector('.content .invalidUsername2').innerHTML += 'Username is invalid. Please Try Again. Use only Alphanumeric Characters, _ , and -.';
+		document.querySelector('.content .invalidUsername2').innerHTML = 'Username is invalid. Please Try Again. Use only Alphanumeric Characters, _ , and -.';
 		//alert("Username is invalid. Please Try Again. Use only Alphanumeric Characters, _ , and -.");
 		//form.username.focus();
 		usernameIsValid = false;
@@ -77,7 +77,7 @@ function emailValidation() {	//inputtext
 
 	var emailIsValid = true;
 	if(form.email.value.length == 0) {
-		document.querySelector('.content .invalidEmail').innerHTML += 'Email cannot be blank.';
+		document.querySelector('.content .invalidEmail').innerHTML = 'Email cannot be blank.';
 		//alert("Email cannot be blank.");
 		//form.email.focus();
 		emailIsValid = false;
@@ -86,7 +86,8 @@ function emailValidation() {	//inputtext
 	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
 	if(form.email.value.match(emailExp)) {
 	} else {
-		document.querySelector('.content .invalidEmail2').innerHTML += 'Email is invalid. Please Try Again.';
+
+		document.querySelector('.content .invalidEmail2').innerHTML = 'Email is invalid. Please Try Again.';
 
 		//alert("Email is invalid. Please Try Again.");
 		//form.email.focus();
@@ -104,14 +105,14 @@ function nameValidation() {	//inputtext
 	var nameIsValid = true;
 
 	if(form.firstname.value.length == 0) {
-		document.querySelector('.content .invalidFirstname').innerHTML += 'First Name cannot be blank.';
+		document.querySelector('.content .invalidFirstname').innerHTML = 'First Name cannot be blank.';
 		//alert("Email cannot be blank.");
 		//form.firstname.focus();
 		nameIsValid = false;
 	}
 
 	if(form.lastname.value.length == 0) {
-		document.querySelector('.content .invalidLastname').innerHTML += 'Last Name cannot be blank..';
+		document.querySelector('.content .invalidLastname').innerHTML = 'Last Name cannot be blank..';
 		//alert("Email cannot be blank.");
 		//form.lastname.focus();
 		nameIsValid = false;
