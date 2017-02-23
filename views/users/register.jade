@@ -4,36 +4,42 @@ extends ../layout
 block scripts
     script(src='../js/validation.js', type='text/javascript')
 block content
-    div.registerdiv
+    
+    div.registerdiv        
         div#register
             h5#wc Welcome!
             h5#ac Please Create a new account:
             div#form_layout
-
-                form(action="register", method="post")
-
-                
+                form(action="register", method="post", id="myForm")
                     br
-                    
                     label Screen Name (username):
-                    input(name='username', type='text')
+                    input#username(name='username', type='text' )
+                    span.errormsgs#namelen #{usernameLength}
+                    span.errormsgs#nameinval #{invalidUsername}
                     br
                     label Email Address:
-                    input(name='email',type='email')
+                    input#email(name='email', type='text')
+                    span.errormsgs #{emailLength}
+                    span.errormsgs #{invalidEmail}
                     br
                     label First Name:
-                    input(name='first_name',type='text')
+                    input#firstname(name='first_name', type='text')
+                    span.errormsgs #{firstnameLength}
                     br
                     label Last Name:
-                    input(name='last_name',type='text')
+                    input#lastname(name='last_name', type='text')
+                    span.errormsgs #{lastnameLength}
                     br
-                
                     label Password:
-                    input#password(name='password',type='password')
+                    input#password(name='password', type='password')
+                    span.errormsgs #{passMatch}
+                    span.errormsgs #{passLength}
                     br
                     label Confirm Password:
-                    input#cpassword(name='cpass',type='password')
+                    input#cpassword(name='cpass', type='password')
+                    span.errormsgs #{cpassLength}
                     br
                     div.submitdiv
                         div.center
-                            input(type="submit" id="submit" value="Register")
+                            input(type="submit" id="submit" value="Register")           
+            

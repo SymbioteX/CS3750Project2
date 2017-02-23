@@ -43,7 +43,7 @@ console.log("Listening on port " + port);
 /*
 //connection handler
 io.sockets.on('connection', function (socket) {
-    socket.emit('message', { message: 'welcome to the chat' });
+    socket.emit('message', { message: 'Welcome to the chat!' });
     socket.on('send', function (data) {
         io.sockets.emit('message', data);
     });
@@ -57,36 +57,6 @@ io.on('connection', function(socket){
 });
 */
 /*
-var kittySchema = mongoose.Schema({
-  name: String
-});
-
-kittySchema.methods.speak = function()
-{
-  var greeting = this.name
-    ? "Meow name is " + this.name
-    :"I don't have a name";
-    console.log(greeting);
-}
-var Kitten = mongoose.model('Kitten', kittySchema);
-
-var silence = new Kitten({ name:'Silence'});
-console.log(silence.name);
-silence.speak();
-
-silence.save(function(err, silence){
-  if(err) return console.error(err);
-  silence.speak();
-});
-
-Kitten.find(function(err, kittens)
-{
-  if(err) return console.error(err);
-  console.log(kittens);
-})
-*/
-
-
 var schema = new mongoose.Schema({
   username: String,
   email:  String,
@@ -101,36 +71,12 @@ var schema = new mongoose.Schema({
 
 var User = mongoose.model('users', schema);
 
-
-/*
-var brady = new User({ username:'bradyadair', first_name:'James', last_name:'Adair', email:'something@hotmail.com', password:'mypassword'});
-console.log(brady.first_name);
-*/
-/*silence.speak();
-*/
-/*
-brady.save(function(err, brady){
-  if(err) return console.error(err);
-  console.log(brady.first_name, brady.last_name, brady.email, brady.password);
-});
-*/
-/*
-User.remove(function(err, users)
-{
-    if(err) return console.error(err);
-
-    console.log(users);
-})
-*/
-
-
 User.find(function(err, users)
 {
-  if(err) return console.error(err);
-
+    if(err) return console.error(err);
     console.log(users);
-
 })
+*/
 
 // ********************************
 
@@ -156,33 +102,11 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/chat', chat);
 
+/*
 app.all('/', function(req,res){
   res.render('chat');
 })
-
-app.all('/users/register', function(req,res){
-  res.render('users/register');
-
-  console.log(req.body); //body
-  var user = new User({ username: req.body.username, 
-    first_name: req.body.first_name, 
-    last_name: req.body.last_name, 
-    email: req.body.email, 
-    password: req.body.password});
-  
-  user.save(function(err, brady){
-  if(err) return console.error(err);
-    //console.log(user.first_name, user.last_name, user.email, user.password);
-  });
-
-  User.find(function(err, users)
-  {
-    if(err) return console.error(err);
-
-    console.log(users);
-
-  })
-});
+*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
