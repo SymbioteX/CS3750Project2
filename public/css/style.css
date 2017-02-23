@@ -234,6 +234,12 @@ h2 {
 	padding-right: 10px;
 	color: #234ABC;
 }
+#noaccnt:visited{
+	color: #234ABC;
+}
+#noaccnt:hover{
+	color: #1C3C96;
+}
 
 #help{
 	padding-left: 10px;

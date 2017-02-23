@@ -157,7 +157,7 @@ router.post('/login', function(req, res) {
         var sess = req.session;
         sess.token = genToken;
 
-        res.redirect('../chat');              
+        res.redirect('../chat');
       }
     }   
  });
