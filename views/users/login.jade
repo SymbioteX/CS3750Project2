@@ -10,6 +10,8 @@ block content
             div#form_layout1
                 form(action='login', method="post" name='login')
                     br
+                    span.errormsgs #{loginError}
+                    br
                     label Email:
                     input(name='email', type='text', required='', autocomplete='', onsubmit='return emailValidation(this.value)')
                     br

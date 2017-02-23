@@ -6,14 +6,25 @@ var router        = express.Router();
 
 /* GET users listing. */
 router.get('/login', function(req, res, next) {
-  res.render('users/login');
+  var passedVariable = req.query.valid;
+  console.log(passedVariable);
+  /*if (passedVariable == 'invalidLogin')
+  {
+      res.render('users/login', {loginError: "Invalid Login"});
+  }
+  else
+  {*/
+      res.render('users/login');
+  //}
 });
 
 router.get('/logout', function(req, res, next) {
+  var passedVariable = req.query.valid;
   res.render('users/login');
 });
 
 router.get('/register', function(req, res, next) {
+  var passedVariable = req.query.valid;
   res.render('users/register');
 });
 
@@ -144,11 +155,15 @@ router.post('/login', function(req, res) {
     if (err) next(err);
 
     if (!user) {
-      res.json({ success: false, message: 'Authentication failed. User not found'});
+     // res.json({ success: false, message: 'Authentication failed. User not found'});
+      //var string = encodeURIComponent('invalidLogin');
+        res.render('users/login', {loginError: "Invalid Login"});
     } else if (user) {
       // check pw
       if (user.password != req.body.password) {
-        res.json({ success: false, message: 'Authentication failed. Wrong password'});
+       // res.json({ success: false, message: 'Authentication failed. Wrong password'});
+        //var string = encodeURIComponent('invalidLogin');
+        res.render('users/login', {loginError: "Invalid Login"});
       } else {
         var genToken = jwt.sign( {username: user.username}, 'secret', {
           expiresIn: "2h"
