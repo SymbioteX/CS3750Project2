@@ -6,6 +6,9 @@ block scripts
 block content
     
     div.registerdiv        
+        .content(style='color:red')
+                | 
+                span.value
         div#register
             h5#wc Welcome!
             h5#ac Please Create a new account:
@@ -16,33 +19,57 @@ block content
                     input#username(name='username', type='text' )
                     span.errormsgs#namelen #{usernameLength}
                     span.errormsgs#nameinval #{invalidUsername}
-                    br
+                    .content(style='color:red')
+                        | 
+                        span.invalidUsername
+                    .content(style='color:red')
+                        | 
+                        span.invalidUsername2
+                    
                     label Email Address:
                     input#email(name='email', type='text')
                     span.errormsgs #{emailLength}
                     span.errormsgs #{invalidEmail}
-                    br
+                    .content(style='color:red')
+                        | 
+                        span.invalidEmail
+                    .content(style='color:red')
+                        | 
+                        span.invalidEmail2
+                    
                     label First Name:
                     input#firstname(name='first_name', type='text')
                     span.errormsgs #{firstnameLength}
-                    br
+                    .content(style='color:red')
+                        | 
+                        span.invalidFirstname
+                    
                     label Last Name:
                     input#lastname(name='last_name', type='text')
                     span.errormsgs #{lastnameLength}
-                    br
+                    .content(style='color:red')
+                        | 
+                        span.invalidLastname
+                    
                     label Password:
                     input#password(name='password', type='password')
                     span.errormsgs #{passMatch}
                     span.errormsgs #{passLength}
-                    br
+                    .content(style='color:red')
+                        | 
+                        span.invalidPassword
+                    
                     label Confirm Password:
                     input#cpassword(name='cpass', type='password')
                     span.errormsgs #{cpassLength}
-                    br
+                    .content(style='color:red')
+                        | 
+                        span.invalidCPassword
+                    .content(style='color:red')
+                        | 
+                        span.invalidPasswordMatch
+                    
                     div.submitdiv
                         div.center
-                            input(type="submit" id="submit" value="Register")
-            div#help
-                h3 Already have an account? 
-                    a#noaccnt(href='../users/login') Login
+                            input(type="submit" id="submit" value="Register")           
             
