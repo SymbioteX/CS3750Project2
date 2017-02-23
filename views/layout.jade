@@ -15,9 +15,7 @@ html
             li
                 a#logo(href='/') Let's Chat!
             li
-                block login
-            li
-                block logout
+                a(href='/users/login') Login
             li
                 a(href='/users/register') Register
             li
@@ -27,6 +25,6 @@ html
         div
             p.copy &copy; #{new Date().getFullYear()} - CS 3750 Group 4
                 span#about 
-                    a(href='/') About
+                    a(href='/users/logout') Logout
     block scripts
         
