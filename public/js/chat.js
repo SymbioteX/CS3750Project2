@@ -24,13 +24,10 @@ window.onload = function() {
         }
     });
 
-    var height = 320;
+    var height = 394;
 
     sendButton.onclick = function() {
-        /*
-        if(name.value == "") {
-            alert("Please type your name!");
-        } else {
+       
             var text = field.value;
             socket.emit('send', { message: text, username: name.value });
             field.value = "";
@@ -41,8 +38,6 @@ window.onload = function() {
                 document.getElementById('chat-area').style.marginTop = (height-=20) + "px";
             window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
         }
-        */
+        
         socket.emit('send', { message: field.value });
-    };
-
-}
+};
