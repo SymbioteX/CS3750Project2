@@ -10,14 +10,13 @@ block content
             div#form_layout1
                 form(action='login', method="post" name='login')
                     br
-                    span.errormsgs #{loginError}
-                    br
                     label Email:
                     input(name='email', type='text', required='', autocomplete='', onsubmit='return emailValidation(this.value)')
                     br
                     label Password:
                     input(name='password', type='password', required='', autocomplete='', onsubmit='return passwordValidation(this.value)')
                     br
+                    span.errormsgs #{loginError}
                     div.submitdiv
                         div.center
                             input(type="submit" id="submit" value="Login")
