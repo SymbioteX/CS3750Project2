@@ -6,9 +6,8 @@ window.onload = function() {
     var field = document.getElementById("chat-textarea");
     var sendButton = document.getElementById("send");
     var chat = document.getElementById("chat-messages");
-
     //var name = document.getElementById("chat-name");
-    //name.focus();
+    field.focus();
   
     socket.on('message', function (data) {
         if(data.message) {
