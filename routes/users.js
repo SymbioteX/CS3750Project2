@@ -10,7 +10,7 @@ router.get('/login', function(req, res, next) {
 });
 
 router.get('/logout', function(req, res, next) {
-  res.redirect('users/login');
+  res.redirect('../users/login');
 });
 
 router.get('/register', function(req, res, next) {

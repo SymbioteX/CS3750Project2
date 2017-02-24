@@ -51,6 +51,27 @@ body {
 }
 
 
+.chat::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 6px;
+	background-color: #fff;
+}
+
+.chat::-webkit-scrollbar
+{
+	width: 14px;
+	border-radius: 6px;
+	background-color: #ffffff;
+}
+
+.chat::-webkit-scrollbar-thumb
+{
+	border-radius: 6px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #2d7e5e;
+}
+
 /* ------------ Header styles ------------ */
 
 /* ------ Home ------ */
@@ -348,7 +369,7 @@ input[type=submit]:hover {
 }
 
 span.errormsgs {
-	color: red;
+	color: #ff3737;
 	line-height: 30px;
 	padding-left: 1%;
 	margin-top: -10px;
@@ -362,27 +383,33 @@ span.errormsgs {
 
 .chat {
 	position: relative;
+	overflow-x: hidden;
+	overflow-y: scroll;
+    /*display: table;*/
 	margin: auto;
-	width: 48%;
-	padding: 40px;
+	height: 575px;
+	width: 50%;
+	padding: 20px;
 	border-radius: 6px;
 	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.5);
-	margin-top: 100px;
-	margin-bottom: 2%;
+	margin-top: 60px;
 	background-color: white;
 	color: #0d625f;
-	min-height: 500px;
 }
 
 #chat-area {
-	padding-left: 6px;
-	margin-top: 394px; /*46%;*/
+	position: static;
+	bottom: 0;
+	left: 0;
+	display : table-row;
+    height : 1px;
 	line-height: 20px;
 }
 
 #chat-messages {
-  	width:100%;
-  	padding-left: 8px;
+  	width: 97%;
+	padding: 10px;
+  	padding-left: 14px;
 	font-family: 'Varela Round', sans-serif;
 	font-size: 14pt;
 	line-height: 26px;
@@ -408,7 +435,7 @@ strong #chat-messages {
 
 #send {
 	float: right;
-	width: 16%;
+	width: 18%;
 	background-color:#008eff;
 	color: white;
 	border: 1px solid #008eff;
@@ -424,7 +451,7 @@ strong #chat-messages {
 }
 
 #chat-textarea{
-  width: 78%;
+  width: 76%;
   padding: 10px;
   max-width: 78%;
   font-family: 'Varela Round', sans-serif;

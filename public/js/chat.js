@@ -23,7 +23,7 @@ window.onload = function() {
         }
     });
 
-    var height = 394;
+    
 
     sendButton.onclick = function() {
        
@@ -33,9 +33,6 @@ window.onload = function() {
             field.value = "";
             field.focus();
             
-            console.log(height);
-            if(height > 28)
-                document.getElementById('chat-area').style.marginTop = (height-=20) + "px";
             window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
         }
         //what is this? -danny
