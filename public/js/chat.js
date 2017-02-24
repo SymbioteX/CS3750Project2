@@ -28,7 +28,8 @@ window.onload = function() {
     sendButton.onclick = function() {
        
             var text = field.value;
-            socket.emit('send', { message: text, username: name.value });
+            //socket.emit('send', { message: text, username: name.value });
+            socket.emit('send', { message: text });
             field.value = "";
             field.focus();
             
@@ -37,6 +38,6 @@ window.onload = function() {
                 document.getElementById('chat-area').style.marginTop = (height-=20) + "px";
             window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
         }
-        
+        //what is this? -danny
         socket.emit('send', { message: field.value });
 };
