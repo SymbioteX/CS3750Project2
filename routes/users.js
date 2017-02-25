@@ -4,6 +4,9 @@ var jwt           = require('jsonwebtoken');
 var User          = require('../models/user');
 var router        = express.Router();
 
+var myEmail;
+var myUsername;
+
 /* GET users listing. */
 router.get('/login', function(req, res, next) {
   var passedVariable = req.query.valid;
@@ -20,6 +23,28 @@ router.get('/login', function(req, res, next) {
 
 router.get('/logout', function(req, res, next) {
   var passedVariable = req.query.valid;
+  console.log(myEmail);
+    User.findOne({
+    email: myEmail
+  }, function(err, user) {
+    if (err) next(err);
+    console.log("im out here");
+    if (user) {     
+          console.log("im in here");   
+          var genToken = jwt.sign( {username: myUsername}, 'secret', {
+          expiresIn: 1
+        });
+        console.log(genToken);
+        console.log(req.session);  
+        console.log(req.session.token);  
+        var sess = req.session;
+        sess.token = genToken;
+        console.log(req.session.token); 
+
+        console.log("my new req.session");
+        console.log(req.session); 
+    }
+  });
   res.render('users/login');
 });
 
@@ -171,6 +196,8 @@ router.post('/login', function(req, res) {
 
         var sess = req.session;
         sess.token = genToken;
+        myEmail = user.email;
+        myUsername = user.username;
 
         res.redirect('../chat');
       }
