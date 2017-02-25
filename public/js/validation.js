@@ -6,13 +6,16 @@ function passwordValidation() {
 	console.log(form.password.value);
 
 	var passValid = true;
-	
+	document.querySelector('.content .invalidPassword').innerHTML = '';
+
 	if(form.password.value.length < 6) {
 		//alert("Password cannot be less than 6 characters.");
 		document.querySelector('.content .invalidPassword').innerHTML = 'Password cannot be less than 6 characters.';
 		//password.focus();
 		passValid = false;
 	}
+
+	document.querySelector('.content .invalidCPassword').innerHTML = '';
 
 	if(form.cpassword.value.length < 6) {
 		//alert("Confirm Password cannot be less than 6 characters.");
@@ -22,6 +25,7 @@ function passwordValidation() {
 	}
 	
 
+	document.querySelector('.content .invalidPasswordMatch').innerHTML = '';
 	if (form.password.value==form.cpassword.value)
 	{
 		console.log("passwords match");
@@ -47,13 +51,17 @@ function usernameValidation() {
 
 
 	var usernameIsValid = true;
-
+	
+	document.querySelector('.content .invalidUsername').innerHTML = '';
+	
 	if(form.username.value.length == 0) {
 		document.querySelector('.content .invalidUsername').innerHTML = 'Username cannot be blank.';
 		//form.username.focus();
 		usernameIsValid = false;
 	}
 
+	document.querySelector('.content .invalidUsername2').innerHTML = '';
+	
 	var usernameExp = "^[a-zA-Z0-9_-]*$"; ///^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
 	if(form.username.value.match(usernameExp)) 
 	{
@@ -74,6 +82,7 @@ function emailValidation() {	//inputtext
 	console.log("I'm in email validation");
 	console.log(form.email.value);
 
+	document.querySelector('.content .invalidEmail').innerHTML = '';
 
 	var emailIsValid = true;
 	if(form.email.value.length == 0) {
@@ -82,6 +91,8 @@ function emailValidation() {	//inputtext
 		//form.email.focus();
 		emailIsValid = false;
 	}
+
+	document.querySelector('.content .invalidEmail2').innerHTML = '';
 	
 	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
 	if(form.email.value.match(emailExp)) {
@@ -104,12 +115,16 @@ function nameValidation() {	//inputtext
 
 	var nameIsValid = true;
 
+	document.querySelector('.content .invalidFirstname').innerHTML = '';
+
 	if(form.firstname.value.length == 0) {
 		document.querySelector('.content .invalidFirstname').innerHTML = 'First Name cannot be blank.';
 		//alert("Email cannot be blank.");
 		//form.firstname.focus();
 		nameIsValid = false;
 	}
+
+	document.querySelector('.content .invalidLastname').innerHTML = '';
 
 	if(form.lastname.value.length == 0) {
 		document.querySelector('.content .invalidLastname').innerHTML = 'Last Name cannot be blank..';
