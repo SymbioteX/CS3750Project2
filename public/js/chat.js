@@ -33,17 +33,14 @@ window.onload = function() {
             field.value = "";
             field.focus();
             
-            scrollSmoothToBottom();
+            scrollToBottom();
     }
         //what is this? -danny
     socket.emit('send', { message: field.value });
 };
 
-function scrollSmoothToBottom() {
-    var myElement = document.getElementById('chat-messages');
-    var topPos = myElement.offsetTop*2;
-
-    document.getElementById('chat-messages').scrollTop += topPos;
+function scrollToBottom() {
+    document.getElementById('chat-messages').scrollTop += 1000000;
 }
 
 document.getElementById('chat-text')
