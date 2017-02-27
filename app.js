@@ -9,6 +9,7 @@ var jade = require('jade');
 // added ***************************
 var session = require('express-session');
 var jwt = require('jsonwebtoken');
+var $ = require('jQuery')
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/project2');
