@@ -64,7 +64,7 @@ router.post('/register', function(req,res){
 		isValid = false;
 	}
 
-	var usernameExp = "^[a-zA-Z0_-]*$"; 
+	var usernameExp = "^[a-zA-Z0-9_-]*$"; 
 	if(user.username.match(usernameExp)) 
 	{
 	} 
