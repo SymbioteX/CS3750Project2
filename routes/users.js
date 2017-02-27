@@ -4,6 +4,9 @@ var jwt           = require('jsonwebtoken');
 var User          = require('../models/user');
 var router        = express.Router();
 
+var myEmail;
+var myUsername;
+
 /* GET users listing. */
 router.get('/login', function(req, res, next) {  
   res.render('users/login'); 
@@ -11,6 +14,7 @@ router.get('/login', function(req, res, next) {
 
 router.get('/logout', function(req, res, next) {
   res.redirect('../users/login');
+
 });
 
 router.get('/register', function(req, res, next) {
@@ -154,6 +158,8 @@ router.post('/login', function(req, res) {
 
         var sess = req.session;
         sess.token = genToken;
+        myEmail = user.email;
+        myUsername = user.username;
 
         res.redirect('../chat');
       }

@@ -7,7 +7,7 @@ block scripts
 
 block content    
     div.registerdiv        
-        .content(style='color:red')
+        .content(style='color:#ff5757')
                 | 
                 span.value
         div#register
@@ -20,10 +20,10 @@ block content
                     input#username(name='username', type='text' )
                     span.errormsgs#namelen #{usernameLength}
                     span.errormsgs#nameinval #{invalidUsername}
-                    .content(style='color:red')
+                    .content(style='color:#ff5757')
                         | 
                         span.invalidUsername
-                    .content(style='color:red')
+                    .content(style='color:#ff5757')
                         | 
                         span.invalidUsername2
                     
@@ -31,24 +31,24 @@ block content
                     input#email(name='email', type='text')
                     span.errormsgs #{emailLength}
                     span.errormsgs #{invalidEmail}
-                    .content(style='color:red')
+                    .content(style='color:#ff5757')
                         | 
                         span.invalidEmail
-                    .content(style='color:red')
+                    .content(style='color:#ff5757')
                         | 
                         span.invalidEmail2
                     
                     label First Name:
                     input#firstname(name='first_name', type='text')
                     span.errormsgs #{firstnameLength}
-                    .content(style='color:red')
+                    .content(style='color:#ff5757')
                         | 
                         span.invalidFirstname
                     
                     label Last Name:
                     input#lastname(name='last_name', type='text')
                     span.errormsgs #{lastnameLength}
-                    .content(style='color:red')
+                    .content(style='color:#ff5757')
                         | 
                         span.invalidLastname
                     
@@ -56,17 +56,17 @@ block content
                     input#password(name='password', type='password')
                     span.errormsgs #{passMatch}
                     span.errormsgs #{passLength}
-                    .content(style='color:red')
+                    .content(style='color:#ff5757')
                         | 
                         span.invalidPassword
                     
                     label Confirm Password:
                     input#cpassword(name='cpass', type='password')
                     span.errormsgs #{cpassLength}
-                    .content(style='color:red')
+                    .content(style='color:#ff5757')
                         | 
                         span.invalidCPassword
-                    .content(style='color:red')
+                    .content(style='color:#ff5757')
                         | 
                         span.invalidPasswordMatch
                     

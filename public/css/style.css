@@ -370,11 +370,11 @@ input[type=submit]:hover {
 }
 
 span.errormsgs {
-	color: #ff3737;
+
+	color: #ff5757;
 	line-height: 30px;
 	padding-left: 1%;
-	margin-top: -10px;
-	margin-bottom: 1%;
+	
 	font-family: 'Varela Round', sans-serif;
 }
 
