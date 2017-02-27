@@ -8,52 +8,18 @@ var myEmail;
 var myUsername;
 
 /* GET users listing. */
-router.get('/login', function(req, res, next) {
-  var passedVariable = req.query.valid;
-  console.log(passedVariable);
-  /*if (passedVariable == 'invalidLogin')
-  {
-      res.render('users/login', {loginError: "Invalid Login"});
-  }
-  else
-  {*/
-      res.render('users/login');
-  //}
+router.get('/login', function(req, res, next) {  
+  res.render('users/login'); 
 });
 
 router.get('/logout', function(req, res, next) {
-  var passedVariable = req.query.valid;
-  console.log(myEmail);
-    User.findOne({
-    email: myEmail
-  }, function(err, user) {
-    if (err) next(err);
-    console.log("im out here");
-    if (user) {     
-          console.log("im in here");   
-          var genToken = jwt.sign( {username: myUsername}, 'secret', {
-          expiresIn: 1
-        });
-        console.log(genToken);
-        console.log(req.session);  
-        console.log(req.session.token);  
-        var sess = req.session;
-        sess.token = genToken;
-        console.log(req.session.token); 
+  res.redirect('../users/login');
 
-        console.log("my new req.session");
-        console.log(req.session); 
-    }
-  });
-  res.render('users/login');
 });
 
 router.get('/register', function(req, res, next) {
-  var passedVariable = req.query.valid;
   res.render('users/register');
 });
-
-//router.post('/login', function(req, res, next) {
 
 router.post('/register', function(req,res){
   
@@ -180,14 +146,10 @@ router.post('/login', function(req, res) {
     if (err) next(err);
 
     if (!user) {
-     // res.json({ success: false, message: 'Authentication failed. User not found'});
-      //var string = encodeURIComponent('invalidLogin');
         res.render('users/login', {loginError: "Invalid Login"});
     } else if (user) {
       // check pw
       if (user.password != req.body.password) {
-       // res.json({ success: false, message: 'Authentication failed. Wrong password'});
-        //var string = encodeURIComponent('invalidLogin');
         res.render('users/login', {loginError: "Invalid Login"});
       } else {
         var genToken = jwt.sign( {username: user.username}, 'secret', {
@@ -204,6 +166,5 @@ router.post('/login', function(req, res) {
     }   
  });
 }); 
-
 
 module.exports = router;

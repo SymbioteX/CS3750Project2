@@ -23,20 +23,25 @@ window.onload = function() {
         }
     });
 
-    var height = 394;
+    
 
     sendButton.onclick = function() {
        
             var text = field.value;
-            socket.emit('send', { message: text, username: name.value });
+            //socket.emit('send', { message: text, username: name.value });
+            socket.emit('send', { message: text });
             field.value = "";
             field.focus();
             
-            console.log(height);
-            if(height > 28)
-                document.getElementById('chat-area').style.marginTop = (height-=20) + "px";
-            window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
-        }
-        
-        socket.emit('send', { message: field.value });
+            scrollSmoothToBottom();
+    }
+        //what is this? -danny
+    socket.emit('send', { message: field.value });
 };
+
+function scrollSmoothToBottom() {
+    var myElement = document.getElementById('chat-messages');
+    var topPos = myElement.offsetTop*2;
+
+    document.getElementById('chat-messages').scrollTop += topPos;
+}

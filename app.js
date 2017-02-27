@@ -8,6 +8,8 @@ var jade = require('jade');
 
 // added ***************************
 var session = require('express-session');
+var jwt = require('jsonwebtoken');
+var $ = require('jQuery')
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/project2');
@@ -40,15 +42,21 @@ app.get("/", function(req, res){
 var io = require('socket.io').listen(app.listen(port));
 console.log("Listening on port " + port);
 */
-/*
+
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
 //connection handler
 io.sockets.on('connection', function (socket) {
     socket.emit('message', { message: 'Welcome to the chat!' });
+    // send message
     socket.on('send', function (data) {
-        io.sockets.emit('message', data);
+        io.sockets.emit('message', { username: socket.username, message: data.message });
     });
 });
-*/
+
+server.listen(3700);
+
 /*
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
@@ -82,7 +90,7 @@ User.find(function(err, users)
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var chat = require('./routes/chat');
+var chat = require('./routes/chat')(io);
 
 //var app = express();
 
