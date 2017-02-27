@@ -1,98 +1,161 @@
 var form = document.getElementById("myForm");
-form.addEventListener("submit", function(evt){
 
-	var isCorrect =false;
-	
-	if (passwordValidation() && cpasswordValidation() && emailValidation())
-	{
-		isCorrect = true;
-	}
-
-	if (!isCorrect)
-	{
-		evt.preventDefault();
-	}
-})
 function passwordValidation() {
 	console.log("I'm in passwordvalidation");
-	var password = document.getElementById('password');
-	if(password.value.length == 0) {
-		alert("Password cannot be blank.");
-		password.focus();
-		return false;
+
+	console.log(form.password.value);
+
+	var passValid = true;
+	document.querySelector('.content .invalidPassword').innerHTML = '';
+
+	if(form.password.value.length < 6) {
+		//alert("Password cannot be less than 6 characters.");
+		document.querySelector('.content .invalidPassword').innerHTML = 'Password cannot be less than 6 characters.';
+		//password.focus();
+		passValid = false;
+	}
+
+	document.querySelector('.content .invalidCPassword').innerHTML = '';
+
+	if(form.cpassword.value.length < 6) {
+		//alert("Confirm Password cannot be less than 6 characters.");
+		document.querySelector('.content .invalidCPassword').innerHTML = 'Password cannot be less than 6 characters.';
+		//password.focus();
+		passValid = false;
 	}
 	
-	var isValid = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,}$/".test(password.value);
-	if(!isValid)
+
+	document.querySelector('.content .invalidPasswordMatch').innerHTML = '';
+	if (form.password.value==form.cpassword.value)
 	{
-		alert("Password must be more than 8 characters, include one uppercase letter, one lowercase letter, one number, and one special character for security purposes.");
-		password.focus();
-		return false;
-	}
-	return true;
-}
-
-function cpasswordValidation(str) {
-	console.log("I'm in cpasswordvalidation");
-	var cpassword = document.getElementById('cpassword');
-	if(cpassword.value.length == 0) {
-		alert("Confirm Password cannot be blank.");
-		cpassword.focus();
-		return false;
-	}
-	
-	var isValid = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,}$/.test(str);
-	if(!isValid)
-	{
-		alert("Password must be more than 8 characters, include one uppercase letter, one lowercase letter, one number, and one special character for security purposes.");
-		password.focus();
-		return false;
-	}
-	return true;
-}
-
-
-function emailValidation(inputtext) {
-	console.log("I'm in email validation");
-	if(inputtext.value.length == 0) {
-		alert("Email cannot be blank.");
-		inputtext.focus();
-		return false;
-	}
-	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
-	if(inputtext.value.match(emailExp)) {
-		return true;
-	} else {
-		alert("Email is invalid. Please Try Again.");
-		inputtext.focus();
-		return false;
-	}
-	return true;
-}
-
-
-function validateForm() 
-{
-	//var cpassword = document.getElementById('cpassword');
-	console.log("I'm in validate form");
-}
-
-/*
-function validateForm() {
-	console.log("I'm in validate form");
-	var x = document.getElementById('test').value;
-	if (x == null || x == 0 || x == "0") {
-		alert("Stop");
+		console.log("passwords match");
 	}
 	else
-		document.form.submit();
-		
+	{
+		document.querySelector('.content .invalidPasswordMatch').innerHTML = 'passwords do not match.';
+
+		//console.log("passwords do not match");
+		passValid = false;
+	}
+	return passValid;
 	
-    var x = document.forms["myForm"]["fname"].value;
-    if (x == "") {
-        alert("Name must be filled out");
-        return false;
-    }
 	
+
 }
-*/
+
+
+
+function usernameValidation() {	
+	console.log("I'm in email validation");
+	console.log(form.username.value);
+
+
+	var usernameIsValid = true;
+	
+	document.querySelector('.content .invalidUsername').innerHTML = '';
+	
+	if(form.username.value.length == 0) {
+		document.querySelector('.content .invalidUsername').innerHTML = 'Username cannot be blank.';
+		//form.username.focus();
+		usernameIsValid = false;
+	}
+
+	document.querySelector('.content .invalidUsername2').innerHTML = '';
+	
+	var usernameExp = "^[a-zA-Z0-9_-]*$"; ///^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+	if(form.username.value.match(usernameExp)) 
+	{
+	} 
+	else {
+		document.querySelector('.content .invalidUsername2').innerHTML = 'Username is invalid. Please Try Again. Use only Alphanumeric Characters, _ , and -.';
+		//alert("Username is invalid. Please Try Again. Use only Alphanumeric Characters, _ , and -.");
+		//form.username.focus();
+		usernameIsValid = false;
+	}
+	
+	return usernameIsValid;
+}
+
+
+
+function emailValidation() {	//inputtext
+	console.log("I'm in email validation");
+	console.log(form.email.value);
+
+	document.querySelector('.content .invalidEmail').innerHTML = '';
+
+	var emailIsValid = true;
+	if(form.email.value.length == 0) {
+		document.querySelector('.content .invalidEmail').innerHTML = 'Email cannot be blank.';
+		//alert("Email cannot be blank.");
+		//form.email.focus();
+		emailIsValid = false;
+	}
+
+	document.querySelector('.content .invalidEmail2').innerHTML = '';
+	
+	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+	if(form.email.value.match(emailExp)) {
+	} else {
+
+		document.querySelector('.content .invalidEmail2').innerHTML = 'Email is invalid. Please Try Again.';
+
+		//alert("Email is invalid. Please Try Again.");
+		//form.email.focus();
+		emailIsValid = false;
+	}
+	return emailIsValid;
+}
+
+
+function nameValidation() {	//inputtext
+	console.log("I'm in name validation");
+	console.log(form.firstname.value);
+
+
+	var nameIsValid = true;
+
+	document.querySelector('.content .invalidFirstname').innerHTML = '';
+
+	if(form.firstname.value.length == 0) {
+		document.querySelector('.content .invalidFirstname').innerHTML = 'First Name cannot be blank.';
+		//alert("Email cannot be blank.");
+		//form.firstname.focus();
+		nameIsValid = false;
+	}
+
+	document.querySelector('.content .invalidLastname').innerHTML = '';
+
+	if(form.lastname.value.length == 0) {
+		document.querySelector('.content .invalidLastname').innerHTML = 'Last Name cannot be blank..';
+		//alert("Email cannot be blank.");
+		//form.lastname.focus();
+		nameIsValid = false;
+	}
+
+	return nameIsValid;
+}
+
+
+
+
+form.addEventListener("submit", function(evt){
+	
+	//document.querySelector('.content .value').innerHTML = '';
+
+
+	var isValid = usernameValidation();
+	isValid = emailValidation() && isValid;
+	isValid = nameValidation() && isValid;
+	isValid =  passwordValidation() && isValid;
+	//document.querySelector('.content .value').innerHTML = 'Errors: ' +document.querySelector('.content .value').innerHTML +'<br /><br />'
+
+	if (!isValid)
+	{
+		console.log("I'm in preventDefault");
+		evt.preventDefault();
+		return false;
+	}
+	
+	
+})

@@ -6,14 +6,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jade = require('jade');
 
-// tokens
-var jwt = require('jsonwebtoken');
-
 // added ***************************
+var session = require('express-session');
+var jwt = require('jsonwebtoken');
+var $ = require('jQuery')
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/project2');
 var db = mongoose.connection;
-
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -22,62 +22,49 @@ db.once('open', function() {
 });
 
 //chat server
-var express = require("express");
+//var express = require("express");
 var app = express();
 var port = 3700;
 
+// session to store token
+app.use(session({
+  secret: 'group4',
+  resave: false,
+  saveUninitialized: false
+}));
+
+/*
 app.get("/", function(req, res){
     res.send("It works!");
 });
-
+*/
+/*
 var io = require('socket.io').listen(app.listen(port));
 console.log("Listening on port " + port);
+*/
+
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
 
 //connection handler
 io.sockets.on('connection', function (socket) {
-    socket.emit('message', { message: 'welcome to the chat' });
+    socket.emit('message', { message: 'Welcome to the chat!' });
+    // send message
     socket.on('send', function (data) {
-        io.sockets.emit('message', data);
+        io.sockets.emit('message', { username: socket.username, message: data.message });
     });
 });
 
+server.listen(3700);
+
+/*
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     console.log('message: ' + msg);
   });
 });
-
-/*
-var kittySchema = mongoose.Schema({
-  name: String
-});
-
-kittySchema.methods.speak = function()
-{
-  var greeting = this.name
-    ? "Meow name is " + this.name
-    :"I don't have a name";
-    console.log(greeting);
-}
-var Kitten = mongoose.model('Kitten', kittySchema);
-
-var silence = new Kitten({ name:'Silence'});
-console.log(silence.name);
-silence.speak();
-
-silence.save(function(err, silence){
-  if(err) return console.error(err);
-  silence.speak();
-});
-
-Kitten.find(function(err, kittens)
-{
-  if(err) return console.error(err);
-  console.log(kittens);
-})
 */
-
-
+/*
 var schema = new mongoose.Schema({
   username: String,
   email:  String,
@@ -92,44 +79,20 @@ var schema = new mongoose.Schema({
 
 var User = mongoose.model('users', schema);
 
-
-/*
-var brady = new User({ username:'bradyadair', first_name:'James', last_name:'Adair', email:'something@hotmail.com', password:'mypassword'});
-console.log(brady.first_name);
-*/
-/*silence.speak();
-*/
-/*
-brady.save(function(err, brady){
-  if(err) return console.error(err);
-  console.log(brady.first_name, brady.last_name, brady.email, brady.password);
-});
-*/
-/*
-User.remove(function(err, users)
-{
-    if(err) return console.error(err);
-
-    console.log(users);
-})
-*/
-
-
 User.find(function(err, users)
 {
-  if(err) return console.error(err);
-
+    if(err) return console.error(err);
     console.log(users);
-
 })
+*/
 
 // ********************************
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var chat = require('./routes/chat');
+var chat = require('./routes/chat')(io);
 
-var app = express();
+//var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -147,33 +110,11 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/chat', chat);
 
+/*
 app.all('/', function(req,res){
   res.render('chat');
 })
-
-app.all('/users/register', function(req,res){
-  res.render('users/register');
-
-  console.log(req.body); //body
-  var user = new User({ username: req.body.username, 
-    first_name: req.body.first_name, 
-    last_name: req.body.last_name, 
-    email: req.body.email, 
-    password: req.body.password});
-  
-  user.save(function(err, brady){
-  if(err) return console.error(err);
-    //console.log(user.first_name, user.last_name, user.email, user.password);
-  });
-
-  User.find(function(err, users)
-  {
-    if(err) return console.error(err);
-
-    console.log(users);
-
-  })
-});
+*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -51,6 +51,27 @@ body {
 }
 
 
+#chat-messages::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 6px;
+	background-color: #fff;
+}
+
+#chat-messages::-webkit-scrollbar
+{
+	width: 14px;
+	border-radius: 6px;
+	background-color: #ffffff;
+}
+
+#chat-messages::-webkit-scrollbar-thumb
+{
+	border-radius: 6px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #2d7e5e;
+}
+
 /* ------------ Header styles ------------ */
 
 /* ------ Home ------ */
@@ -80,7 +101,7 @@ li #logo {
 	float: left;
 	font-size: 30pt;
 	padding-top: 0px;
-	padding-left: 2%;
+	padding-left: 20px;
 	line-height: 50px;
 }
 li #logo:visited {
@@ -93,11 +114,13 @@ li #logo:hover {
 ul {
 	position: fixed;
 	top: 10px;
-	width: 97%;
+	width: 98%;
     list-style-type: none;
 }
 
-
+#logout{
+	display: none;
+}
 
 /* ------------ Section styles ------------ */
 
@@ -171,7 +194,7 @@ h2 {
 
 .info {
 	margin: auto;
-	padding: 40px;
+	padding: 60px;
 	height: 20%;
 	width: 40%;
 	border-radius: 6px;
@@ -227,6 +250,23 @@ h2 {
 	margin-bottom: 3%;
 }
 
+#noaccnt{
+	float: right;
+	padding-right: 10px;
+	color: #234ABC;
+}
+#noaccnt:visited{
+	color: #234ABC;
+}
+#noaccnt:hover{
+	color: #1C3C96;
+}
+
+#help{
+	padding-left: 10px;
+	line-height: 28px;
+}
+
 
 /* -------- Form Elements -------- */
 
@@ -255,11 +295,11 @@ input[type=submit]{
 	color: white;
 	border: 2px solid #297c5e;
 	font-size:16pt;
-	cursor:pointer;
 	border-radius: 7px;
 	margin-top: 30px;
 	margin-bottom: 18px;
 	text-align: center;
+	cursor: pointer;
 }
 
 input[type=submit]:hover {
@@ -276,7 +316,7 @@ input[type=submit]:hover {
     padding: 0px 50px 10px;
     background-color: #234ABC;
 	color: white;
-    margin-bottom: 6%;
+    margin-bottom: 3%;
 }
 
 #form_layout1{
@@ -285,7 +325,7 @@ input[type=submit]:hover {
     padding: 0px 50px 10px;
     background-color: #234ABC;
 	color: white;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
 }
 
 
@@ -329,6 +369,14 @@ input[type=submit]:hover {
     text-align: center;
 }
 
+span.errormsgs {
+
+	color: #ff5757;
+	line-height: 30px;
+	padding-left: 1%;
+	
+	font-family: 'Varela Round', sans-serif;
+}
 
 
 
@@ -337,56 +385,92 @@ input[type=submit]:hover {
 .chat {
 	position: relative;
 	margin: auto;
-	width: 70%;
-	padding: 40px;
+	height: 570px;
+	width: 50%;
+	padding: 24px 20px 20px 20px;
 	border-radius: 6px;
 	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.5);
-	margin-top: 100px;
-	margin-bottom: 2%;
+	margin-top: 56px;
 	background-color: white;
 	color: #0d625f;
-	min-height: 500px;
-  max-width:300px;
 }
 
-.chat-messages,
-.chat-textarea,
-.chat-name {
-  border:1px solid #bbb;
+#chat-area {
+	width: 100%; 
 }
 
-.chat-messages {
-  width:100%;
-  height:300px;
-  overflow-y:scroll;
-  padding:10px;
+#chat-messages {
+  	width: 97%;
+	height: 80%;
+	overflow-y: scroll;
+	padding: 10px;
+  	padding-left: 14px;
+	font-family: 'Varela Round', sans-serif;
+	font-size: 14pt;
+	line-height: 26px;
+	word-wrap: break-word;
 }
 
-.chat-name {
-  width:100%;
-  padding:10px;
-  border-bottom:0;
-  margin:0;
+strong #chat-messages {
+	font-size: 14pt; 
 }
 
-.chat textarea{
-  width:100%;
-  padding:10px;
-  border-top:0;
-  margin:0;
-  max-width:100%;
+.chat #chat-name {
+	font-family: 'Varela Round', sans-serif;
+  	width: 96%;
+  	padding: 10px;
+  	border-bottom: 2px solid black;
+	margin-bottom: 4%
+}
+
+#name {
+	padding-left: 6px;
+}
+
+#send {
+	float: right;
+	width: 16%;
+	background-color:#008eff;
+	color: white;
+	border: 1px solid #008eff;
+	font-size: 14pt;
+	border-radius: 7px;
+	line-height: 44px;
+	text-align: center;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+#send:hover {
+	background-color: #0081E4;
+}
+
+#chat-textarea{
+  width: 74%;
+  padding: 10px;
+  max-width: 78%;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 14pt;
+  min-height: 24px;
+  margin-left: 10px;
+  border-radius: 4px;
 }
 
 .chat-status {
-  color: #bbb
+  color: #bbb;
+  margin-left: 10px;
+  padding-left: 4px;
 }
 
-.chat-textarea,
-.chat-name {
-  outline:none;
+input:focus {
+    outline:none;
 }
 
+textarea:focus {
+    outline:none;
+}
 
+/*
 .stickybar {
    	position: relative;
     bottom: 0;
@@ -409,8 +493,8 @@ input[type=submit]:hover {
     float: right;
     margin: 0;
     line-height: 38px;
-	
 }
+*/
 
 
 /* -------- Footer -------- */
@@ -426,13 +510,13 @@ input[type=submit]:hover {
 }
 
 .copy {
-	padding-left: 2%;
+	padding-left: 20px;
 	margin-top: 12px;
 }
 
 #about a {
 	float: right;
-	padding-right: 3%;
+	padding-right: 2%;
 	text-decoration: none;
 	color: white;
 }

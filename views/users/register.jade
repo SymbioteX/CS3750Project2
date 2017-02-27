@@ -1,39 +1,79 @@
 block variables
     title Register | Let's Chat
 extends ../layout
+
 block scripts
     script(src='../js/validation.js', type='text/javascript')
-block content
-    div.registerdiv
+
+block content    
+    div.registerdiv        
+        .content(style='color:#ff5757')
+                | 
+                span.value
         div#register
             h5#wc Welcome!
-            h5#ac Please Create a new account:
+            h5#ac Please Create an account:
             div#form_layout
-
-                form(action="register", method="post")
-
-                
+                form(action="register", method="post", id="myForm")
                     br
-                    
                     label Screen Name (username):
-                    input(name='username', type='text')
-                    br
+                    input#username(name='username', type='text' )
+                    span.errormsgs#namelen #{usernameLength}
+                    span.errormsgs#nameinval #{invalidUsername}
+                    .content(style='color:#ff5757')
+                        | 
+                        span.invalidUsername
+                    .content(style='color:#ff5757')
+                        | 
+                        span.invalidUsername2
+                    
                     label Email Address:
-                    input(name='email',type='email')
-                    br
+                    input#email(name='email', type='text')
+                    span.errormsgs #{emailLength}
+                    span.errormsgs #{invalidEmail}
+                    .content(style='color:#ff5757')
+                        | 
+                        span.invalidEmail
+                    .content(style='color:#ff5757')
+                        | 
+                        span.invalidEmail2
+                    
                     label First Name:
-                    input(name='first_name',type='text')
-                    br
+                    input#firstname(name='first_name', type='text')
+                    span.errormsgs #{firstnameLength}
+                    .content(style='color:#ff5757')
+                        | 
+                        span.invalidFirstname
+                    
                     label Last Name:
-                    input(name='last_name',type='text')
-                    br
-                
+                    input#lastname(name='last_name', type='text')
+                    span.errormsgs #{lastnameLength}
+                    .content(style='color:#ff5757')
+                        | 
+                        span.invalidLastname
+                    
                     label Password:
-                    input#password(name='password',type='password')
-                    br
+                    input#password(name='password', type='password')
+                    span.errormsgs #{passMatch}
+                    span.errormsgs #{passLength}
+                    .content(style='color:#ff5757')
+                        | 
+                        span.invalidPassword
+                    
                     label Confirm Password:
-                    input#cpassword(name='cpass',type='password')
-                    br
+                    input#cpassword(name='cpass', type='password')
+                    span.errormsgs #{cpassLength}
+                    .content(style='color:#ff5757')
+                        | 
+                        span.invalidCPassword
+                    .content(style='color:#ff5757')
+                        | 
+                        span.invalidPasswordMatch
+                    
                     div.submitdiv
                         div.center
                             input(type="submit" id="submit" value="Register")
+            div#help
+                h3 Already have an account? 
+                    a#noaccnt(href='../users/login') Login
+            

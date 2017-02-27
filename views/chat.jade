@@ -1,19 +1,17 @@
 block variables
-    title Chat | Let's Chat
+	title Chat | Let's Chat
 extends layout
 
 block content
-    .chat
-      input#chat-name(type='text', placeholder='Enter Your Name')
-      div#chat-messages
-      textarea#chat-textarea(placeholder='Type your message')
-      input#send(type='button', value='send')
-      .chat-status
-        | Status: 
-        span Idle
+	div.chat
+		div#chat-messages
+		div#chat-area
+			.chat-status
+				| Status: 
+				span Idle
+			textarea#chat-textarea(placeholder='Type your message', rows='1', cols='50')
+			input#send(type='button', value='send')
       
-
-    script(src='../js/chat.js', type='text/javascript')
-    script(src='http://localhost:3700/socket.io/socket.io.js')
-
-    
+block scripts
+	script(src='../js/chat.js', type='text/javascript')
+	script(src='http://localhost:3700/socket.io/socket.io.js')
