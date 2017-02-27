@@ -33,15 +33,6 @@ app.use(session({
   saveUninitialized: false
 }));
 
-/*
-app.get("/", function(req, res){
-    res.send("It works!");
-});
-*/
-/*
-var io = require('socket.io').listen(app.listen(port));
-console.log("Listening on port " + port);
-*/
 
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
@@ -56,36 +47,6 @@ io.sockets.on('connection', function (socket) {
 });
 
 server.listen(3700);
-
-/*
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
-  });
-});
-*/
-/*
-var schema = new mongoose.Schema({
-  username: String,
-  email:  String,
-  first_name: String,
-  last_name: String,
-  password: String,
-  messages:  [{ 
-    content: { type: String },
-    date: { type: Date, default: Date.now }
-  }]
-});
-
-var User = mongoose.model('users', schema);
-
-User.find(function(err, users)
-{
-    if(err) return console.error(err);
-    console.log(users);
-})
-*/
-
 // ********************************
 
 var index = require('./routes/index');
@@ -110,12 +71,6 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/chat', chat);
 
-/*
-app.all('/', function(req,res){
-  res.render('chat');
-})
-*/
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   //console.log(req.body);
@@ -134,13 +89,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-//app.post('/users/register', routes.validateForm);
-/*
-app.post('/users/register', function(req, res) {
-  console.log(req.body);
-});
-*/
-
 
 module.exports = app;
-

@@ -3,7 +3,7 @@ window.onload = function() {
 
     var messages = [];
     var socket = io.connect('http://localhost:3700');
-    var field = document.getElementById("chat-textarea");
+    var field = document.getElementById("chat-text");
     var sendButton = document.getElementById("send");
     var chat = document.getElementById("chat-messages");
     //var name = document.getElementById("chat-name");
@@ -45,3 +45,20 @@ function scrollSmoothToBottom() {
 
     document.getElementById('chat-messages').scrollTop += topPos;
 }
+
+document.getElementById('chat-text')
+    .addEventListener('keypress', function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            document.getElementById('send').click();
+        }
+});
+/*
+document.getElementById("id_of_textbox")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13) {
+        document.getElementById("id_of_button").click();
+    }
+});
+*/

@@ -385,9 +385,9 @@ span.errormsgs {
 .chat {
 	position: relative;
 	margin: auto;
-	height: 570px;
+	height: 568px;
 	width: 50%;
-	padding: 24px 20px 20px 20px;
+	padding: 24px 20px 24px 20px;
 	border-radius: 6px;
 	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.5);
 	margin-top: 56px;
@@ -445,7 +445,7 @@ strong #chat-messages {
 	background-color: #0081E4;
 }
 
-#chat-textarea{
+#chat-text{
   width: 74%;
   padding: 10px;
   max-width: 78%;
