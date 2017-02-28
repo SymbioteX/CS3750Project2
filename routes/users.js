@@ -139,7 +139,7 @@ router.post('/login', function(req, res) {
         sess.token = genToken;
         myEmail = user.email;
         myUsername = user.username;
-
+        
         res.redirect('../chat');
       }
     }   
