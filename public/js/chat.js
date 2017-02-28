@@ -39,6 +39,23 @@ window.onload = function() {
     socket.emit('send', { message: field.value });
 };
 
+socket.on('updaterooms', function(rooms,current_room){
+    $('#rooms').empty();
+    $.each(rooms, function(key,value){
+        if(value == current_room){
+            $('#rooms').append('div' + value )
+        }
+        else{
+            $('#rooms').append('div'//<a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>..
+            );
+        }
+    });
+});
+
+function switchRoom(room){
+    socket.emit('switchRoom', room);
+}
+
 function scrollToBottom() {
     document.getElementById('chat-messages').scrollTop += 1000000;
 }
