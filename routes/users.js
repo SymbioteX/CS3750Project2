@@ -13,6 +13,10 @@ router.get('/login', function(req, res, next) {
 });
 
 router.get('/logout', function(req, res, next) {
+  // remove token
+  var sess = req.session;
+  sess.token = undefined;
+
   res.redirect('../users/login');
 });
 
@@ -132,11 +136,11 @@ router.post('/login', function(req, res) {
         res.render('users/login', {loginError: "Invalid Login"});
       } else {
         var genToken = jwt.sign( {username: user.username}, 'secret', {
-          expiresIn: "2h"
+          expiresIn: "23h"
         });
-
-        var sess = req.session;
+        var sess = req.session;          
         sess.token = genToken;
+        
         myEmail = user.email;
         myUsername = user.username;
         

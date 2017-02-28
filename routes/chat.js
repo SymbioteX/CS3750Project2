@@ -25,10 +25,10 @@ module.exports = function(io) {
 
     // find username on connection    
     io.on('connection', function (socket) {
-      socket.on('send', function() {           
+      //socket.on('send', function() {           
         socket.username = decodedToken.username;
         //console.log(socket.username);
-      }); 
+      //}); 
     });    
     
     res.render('chat');
