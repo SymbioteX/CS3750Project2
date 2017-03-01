@@ -39,6 +39,44 @@ window.onload = function() {
     socket.emit('send', { message: field.value });
 };
 
+var usernames={};
+var rooms=['lobby','room1','room2'];
+
+io.on('connection', function(socket){
+    socket.on('adduser', function(username){
+        socker.username = username;
+        socket.room = 'lobby';
+        usernames[username] = username;
+        socket.join('lobby');
+        socket.emit('message', 'you have connected to the lobby');
+        socket.broadcast.to('lobby').emit('message', username + ' has connected to this room');
+        socket.emit('updaterooms',rooms,'lobby');
+    });
+    socket.on('switchRoom', function(newroom){
+        //leave the current room(stored in session)
+        socket.leave(socket.room);
+        //join the new room
+        socket.join(newroom);
+        socket.emit('message', 'you have connected to ' + newroom);
+        //send message to old room
+        socket.broadcast.to(socket.room).emit('message', socket.username + ' has left the room');
+        //switch socket.room to newroom
+        socket.room = newroom;
+        socket.broadcast.to(newroom).emit('message', socket.username + ' has joined the room');
+        socket.emit('updaterooms',rooms,newroom);
+    });
+    //user disconnects
+    socket.on('disconnect', function(){
+        //remove username for global usernames list
+        delete usernames[socket.username];
+        //update client side list of users
+        io.socket.emit('updateusers', usernames);
+        //tell everyone a user has left
+        socket.broadcast.emit('message', socket.username + ' has left the building');
+        socket.leave(socket.room);
+    });
+});
+
 socket.on('updaterooms', function(rooms,current_room){
     $('#rooms').empty();
     $.each(rooms, function(key,value){
