@@ -404,13 +404,19 @@ span.errormsgs {
   	padding-left: 14px;
 	font-family: 'Varela Round', sans-serif;
 	font-size: 14pt;
-	line-height: 26px;
+	line-height: 36px;
 	word-wrap: break-word;
 }
 
-strong #chat-messages {
-	font-size: 14pt; 
+strong {
+	font-size: 14pt;
+	/*color: #234ABC;*/
 }
+/*
+hr {
+	background-color: rgba(235, 235, 235, 0.9);
+	height: 1;
+}*/
 
 .chat #chat-name {
 	font-family: 'Varela Round', sans-serif;
@@ -443,7 +449,7 @@ strong #chat-messages {
 }
 
 #chat-text{
-  width: 74%;
+  width: 70%;
   padding: 10px;
   max-width: 78%;
   font-family: 'Varela Round', sans-serif;

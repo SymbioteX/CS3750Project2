@@ -8,25 +8,24 @@ window.onload = function() {
     var chat = document.getElementById("chat-messages");
     //var name = document.getElementById("chat-name");
     field.focus();
-  
+    var user;
+
     socket.on('message', function (data) {
         if(data.message) {
             messages.push(data);
             var html = '';
             for(var i=0; i<messages.length; i++) {
-                html += '<strong>' + (messages[i].username ? messages[i].username : 'Server') + ': </strong>';
-                html += messages[i].message + '<br />';
+                html += "<strong>" + (messages[i].username ? messages[i].username : 'Server') + ': </strong>';
+                html += messages[i].message + '<br /><hr />';
+                user = messages[i].username;
             }
             chat.innerHTML = html;
         } else {
             console.log("There is a problem:", data);
         }
-    });
-
-    
+    });    
 
     sendButton.onclick = function() {
-       
             var text = field.value;
             //socket.emit('send', { message: text, username: name.value });
             socket.emit('send', { message: text });
@@ -50,12 +49,3 @@ document.getElementById('chat-text')
             document.getElementById('send').click();
         }
 });
-/*
-document.getElementById("id_of_textbox")
-    .addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.keyCode == 13) {
-        document.getElementById("id_of_button").click();
-    }
-});
-*/
