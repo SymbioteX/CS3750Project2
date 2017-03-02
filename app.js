@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var jade = require('jade');
 
 // added ***************************
+var app = express();
 var session = require('express-session');
 var jwt = require('jsonwebtoken');
 var $ = require('jQuery')
@@ -21,10 +22,13 @@ db.once('open', function() {
   console.log("You're connected to the project 2 db");
 });
 
-//chat server
-//var express = require("express");
-var app = express();
-var port = 3700;
+var server = require('./public/js/server.js');
+
+var index = require('./routes/index');
+var users = require('./routes/users');
+var chat = require('./routes/chat')(server);
+
+//var app = express();
 
 // session to store token
 app.use(session({
@@ -33,27 +37,6 @@ app.use(session({
   saveUninitialized: false
 }));
 
-
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
-
-//connection handler
-io.sockets.on('connection', function (socket) {
-    socket.emit('message', { message: 'Welcome to the chat!' });
-    // send message
-    socket.on('send', function (data) {
-        io.sockets.emit('message', { username: socket.username, message: data.message });
-    });
-});
-
-server.listen(3700);
-// ********************************
-
-var index = require('./routes/index');
-var users = require('./routes/users');
-var chat = require('./routes/chat')(io);
-
-//var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
