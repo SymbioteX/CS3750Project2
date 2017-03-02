@@ -2,7 +2,7 @@
 window.onload = function() {
 
     var messages = [];
-    var socket = io.connect('http://localhost:3000/socket.io');
+    var socket = io.connect();
     var field = document.getElementById("chat-text");
     var sendButton = document.getElementById("send");
     var chat = document.getElementById("chat-messages");
