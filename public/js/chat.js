@@ -2,7 +2,7 @@
 window.onload = function() {
 
     var messages = [];
-    var socket = io.connect('http://localhost:3700');
+    var socket = io.connect('http://localhost:3000/socket.io');
     var field = document.getElementById("chat-text");
     var sendButton = document.getElementById("send");
     var chat = document.getElementById("chat-messages");
@@ -10,6 +10,8 @@ window.onload = function() {
     field.focus();
     var user;
 
+    socket.on('disconnect', console.warn.bind(console,socket));
+    socket.emit('send',{username: 'bob'})
     socket.on('message', function (data) {
         if(data.message) {
             messages.push(data);

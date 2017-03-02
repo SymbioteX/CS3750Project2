@@ -22,11 +22,9 @@ db.once('open', function() {
   console.log("You're connected to the project 2 db");
 });
 
-var server = require('./public/js/server.js');
-
 var index = require('./routes/index');
 var users = require('./routes/users');
-var chat = require('./routes/chat')(server);
+var chat = require('./routes/chat');
 
 //var app = express();
 
