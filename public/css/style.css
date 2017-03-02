@@ -293,7 +293,7 @@ input[type=submit]{
 	border: 2px solid #297c5e;
 	font-size:16pt;
 	border-radius: 7px;
-	/*margin-top: 30px;*/
+	margin-top: 30px;
 	margin-bottom: 24px;
 	text-align: center;
 	cursor: pointer;
@@ -366,12 +366,10 @@ input[type=submit]:hover {
     text-align: center;
 }
 
-span.errormsgs {
-
+.content span {
 	color: #ff5757;
 	line-height: 30px;
-	padding-left: 1%;
-	
+	/*padding-left: 1%*/
 	font-family: 'Varela Round', sans-serif;
 }
 
@@ -412,11 +410,6 @@ strong {
 	font-size: 14pt;
 	/*color: #234ABC;*/
 }
-/*
-hr {
-	background-color: rgba(235, 235, 235, 0.9);
-	height: 1;
-}*/
 
 .chat #chat-name {
 	font-family: 'Varela Round', sans-serif;

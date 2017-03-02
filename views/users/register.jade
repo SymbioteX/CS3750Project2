@@ -19,48 +19,39 @@ block content
                     label Screen Name (username):
                     input#username(name='username', type='text' )
                     .content(style='color:#ff5757')
-                        | 
+                        | #{invalidUsername}
                         span.invalidUsername
                     .content(style='color:#ff5757')
-                        | 
+                        | #{usernameLength}
                         span.invalidUsername2
-                    
                     label Email Address:
                     input#email(name='email', type='text')
                     .content(style='color:#ff5757')
-                        | 
+                        | #{invalidEmail}
                         span.invalidEmail
                     .content(style='color:#ff5757')
-                        | 
+                        | #{emailLength}
                         span.invalidEmail2
-                    
                     label First Name:
                     input#firstname(name='first_name', type='text')
-                    
                     .content(style='color:#ff5757')
-                        | 
+                        | #{firstnameLength}
                         span.invalidFirstname
-                    
                     label Last Name:
                     input#lastname(name='last_name', type='text')
-                    
                     .content(style='color:#ff5757')
-                        | 
+                        | #{lastnameLength}
                         span.invalidLastname
-                    
                     label Password:
                     input#password(name='password', type='password')
-                    
                     .content(style='color:#ff5757')
-                        | 
+                        | #{passMatch}
                         span.invalidPassword
-                    
                     label Confirm Password:
                     input#cpassword(name='cpass', type='password')
                     .content(style='color:#ff5757')
-                        | 
+                        | #{passLength}
                         span.invalidPasswordMatch
-                    
                     div.submitdiv
                         div.center
                             input(type="submit" id="submit" value="Register")

@@ -6,6 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jade = require('jade');
 
+
+var User          = require('./models/user');
+
 // added ***************************
 var app = express();
 var session = require('express-session');
@@ -34,7 +37,6 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -9,7 +9,16 @@ var myUsername;
 
 /* GET users listing. */
 router.get('/login', function(req, res, next) {  
-  res.render('users/login'); 
+  //check if token exists
+    var sess = req.session;    
+    //if no token redirect to login
+    // TODO: check valid token before next()
+    if (!sess.token) {
+      res.render('users/login'); 
+    } else {
+      
+      res.redirect('../chat');
+    }  
 });
 
 router.get('/logout', function(req, res, next) {
@@ -44,7 +53,8 @@ router.post('/register', function(req,res){
     first_name: req.body.first_name, 
     last_name: req.body.last_name, 
     email: req.body.email, 
-    password: req.body.password});
+    password: req.body.password,
+  });
 
   
   if (user.password != req.body.cpass)
