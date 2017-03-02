@@ -6,6 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jade = require('jade');
 
+
+var User          = require('./models/user');
+
 // added ***************************
 var session = require('express-session');
 var jwt = require('jsonwebtoken');
@@ -43,7 +46,29 @@ io.sockets.on('connection', function (socket) {
     // send message
     socket.on('send', function (data) {
         io.sockets.emit('message', { username: socket.username, message: data.message });
+
+        if (data.message != "")
+        {
+          var query = {'username':socket.username};
+  //        newData.message.content = data.message; //newData//{upsert:true},
+          User.findOneAndUpdate(query, { $push: {messages:{content:data.message}} },  function(err, doc){
+              if (err) return res.send(500, { error: err });
+          });
+        }
+        
+/*
+      User.findOne({
+          username: socket.username
+        }, function(err, user) {
+          if (err) next(err);
+
+          if (user) {
+              //user.messages.content 
+          }
+      });
+      */
     });
+
 });
 
 server.listen(3700);
