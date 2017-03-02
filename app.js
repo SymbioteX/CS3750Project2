@@ -10,6 +10,7 @@ var jade = require('jade');
 var User          = require('./models/user');
 
 // added ***************************
+var app = express();
 var session = require('express-session');
 var jwt = require('jsonwebtoken');
 var $ = require('jQuery')
@@ -24,10 +25,11 @@ db.once('open', function() {
   console.log("You're connected to the project 2 db");
 });
 
-//chat server
-//var express = require("express");
-var app = express();
-var port = 3700;
+var index = require('./routes/index');
+var users = require('./routes/users');
+var chat = require('./routes/chat');
+
+//var app = express();
 
 // session to store token
 app.use(session({
@@ -35,37 +37,6 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
-
-
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
-
-//connection handler
-io.sockets.on('connection', function (socket) {
-    socket.emit('message', { message: 'Welcome to the chat!' });
-    // send message
-    socket.on('send', function (data) {
-        io.sockets.emit('message', { username: socket.username, message: data.message });
-
-        if (data.message != "")
-        {
-          var query = {'username':socket.username};
-          User.findOneAndUpdate(query, { $push: {messages:{content:data.message}} },  function(err, doc){
-              if (err) return res.send(500, { error: err });
-          });
-        }
-    });
-
-});
-
-server.listen(3700);
-// ********************************
-
-var index = require('./routes/index');
-var users = require('./routes/users');
-var chat = require('./routes/chat')(io);
-
-//var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

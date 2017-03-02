@@ -4,14 +4,18 @@
 window.onload = function() {
 
     var messages = [];
-    var socket = io.connect('http://localhost:3700');
+    var socket = io.connect('http://localhost:3000');
     var field = document.getElementById("chat-text");
     var sendButton = document.getElementById("send");
     var chat = document.getElementById("chat-messages");
-    //var name = document.getElementById("chat-name");
+    var name = document.getElementById("myName");
     field.focus();
     var user;
 
+    socket.emit('join', { username: name.value });
+
+    socket.on('disconnect', console.warn.bind(console,socket));
+    //socket.emit('send',{username: 'bob'})
     socket.on('message', function (data) {
         if(data.message) {
             messages.push(data);
@@ -29,15 +33,15 @@ window.onload = function() {
 
     sendButton.onclick = function() {
             var text = field.value;
-            //socket.emit('send', { message: text, username: name.value });
-            socket.emit('send', { message: text });
+            socket.emit('send', { message: text, username: name.value });
+            //socket.emit('send', { message: text });
             field.value = "";
             field.focus();
             
             scrollToBottom();
     }
         //what is this? -danny
-    socket.emit('send', { message: field.value });
+    //socket.emit('send', { message: field.value });
 };
 
 function scrollToBottom() {

@@ -3,6 +3,7 @@ block variables
 extends layout
 
 block content
+	input#myName(type='hidden', value=username)
 	div.chat
 		div#chat-messages
 		div#chat-area
@@ -15,5 +16,6 @@ block logout
 	a#logout(href='/users/logout') Logout
 
 block scripts
+	//script(src='../js/server.js', type='text/javascript')
 	script(src='../js/chat.js', type='text/javascript')
-	script(src='http://localhost:3700/socket.io/socket.io.js')
+	script(src='http://localhost:3000/socket.io/socket.io.js')
