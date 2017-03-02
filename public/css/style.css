@@ -382,12 +382,12 @@ span.errormsgs {
 .chat {
 	position: relative;
 	margin: auto;
-	height: 568px;
-	width: 50%;
+	height: 545px;
+	width: 80%;
 	padding: 24px 20px 24px 20px;
 	border-radius: 6px;
 	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.5);
-	margin-top: 56px;
+	margin-top: 80px;
 	background-color: white;
 	color: #0d625f;
 }
@@ -432,7 +432,7 @@ hr {
 
 #send {
 	float: right;
-	width: 16%;
+	width: 18%;
 	background-color:#008eff;
 	color: white;
 	border: 1px solid #008eff;
@@ -449,7 +449,7 @@ hr {
 }
 
 #chat-text{
-  width: 70%;
+  width: 72%;
   padding: 10px;
   max-width: 78%;
   font-family: 'Varela Round', sans-serif;

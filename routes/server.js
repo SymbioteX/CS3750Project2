@@ -7,7 +7,7 @@ module.exports = function(io) {
                 socket.username = data.username;
                 //socket.emit('message', {message: 'Welcome to the chat!' + socket.username});                
             } 
-            socket.emit('message', {message: 'Welcome to the chat!' + socket.username});            
+            socket.emit('message', {message: 'Welcome to the chat, ' + socket.username + '!'});            
         });    
 
         // send message
