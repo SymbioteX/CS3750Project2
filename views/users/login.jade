@@ -15,7 +15,8 @@ block content
                     br
                     label Password:
                     input(name='password', type='password', required='', autocomplete='')
-                    span.errormsgs #{loginError}
+                    div.content
+                        span #{loginError}
                     div.submitdiv
                         div.center
                             input(type="submit" id="submit" value="Login")

@@ -23,7 +23,7 @@ function passwordValidation() {
 	}
 	else
 	{
-		document.querySelector('.content .invalidPasswordMatch').innerHTML = 'passwords do not match.';
+		document.querySelector('.content .invalidPasswordMatch').innerHTML = 'Passwords do not match.';
 		passValid = false;
 	}
 	return passValid;
@@ -91,7 +91,7 @@ function nameValidation() {
 	document.querySelector('.content .invalidLastname').innerHTML = '';
 
 	if(form.lastname.value.length == 0) {
-		document.querySelector('.content .invalidLastname').innerHTML = 'Last Name cannot be blank..';
+		document.querySelector('.content .invalidLastname').innerHTML = 'Last Name cannot be blank.';
 		nameIsValid = false;
 	}
 	return nameIsValid;
