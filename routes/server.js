@@ -12,10 +12,10 @@ module.exports = function(io) {
 
         // send message
         socket.on('send', function (data) {
-            // if(!socket.username){
+             if(!socket.username){
             //     socket.emit('message', {message: 'Welcome to the chat!' + data.username})
-            //     socket.username = data.username;
-            // } else {
+                 socket.username = data.username;
+             } //else {
                 io.sockets.emit('message', { username: socket.username, message: data.message });
             //}
         });
