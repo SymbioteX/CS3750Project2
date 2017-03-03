@@ -174,13 +174,13 @@ h2 {
 }
 #little {
 	font-weight: normal;
-	font-size: 10pt;
+	font-size: 12pt;
     line-height: 18px;
 }
 #big {
 	font-weight: bold;
-	font-size: 18pt;
-	line-height: 32px;
+	font-size: 22pt;
+	line-height: 34px;
 }
 
 .error {
