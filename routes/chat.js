@@ -1,5 +1,5 @@
 // This file is executed in the browser, when people visit /chat/<random id>
-module.exports = function(io) {
+
   var express = require('express');
   var session = require('express-session');
   var jwt     = require('jsonwebtoken');
@@ -23,19 +23,19 @@ module.exports = function(io) {
     var sess = req.session;
     var decodedToken = jwt.verify(sess.token, 'secret');
 
-    // find username on connection    
-    io.on('connection', function (socket) {
-      socket.on('send', function() {           
-        socket.username = decodedToken.username;
-        //console.log(socket.username);
-      }); 
-    });    
+    // // find username on connection    
+    // io.on('connection', function (socket) {
+    //   //socket.on('send', function() {           
+    //     socket.username = decodedToken.username;
+    //     //console.log(socket.username);
+    //   //}); 
+    // });    
     
-    res.render('chat');
+    res.render('chat',{username: decodedToken.username});
   });
 
-  return router;
-}
+module.exports = router;
+
 
 /*
 var express = require('express');

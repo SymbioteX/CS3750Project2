@@ -9,12 +9,24 @@ var myUsername;
 
 /* GET users listing. */
 router.get('/login', function(req, res, next) {  
-  res.render('users/login'); 
+  //check if token exists
+    var sess = req.session;    
+    //if no token redirect to login
+    // TODO: check valid token before next()
+    if (!sess.token) {
+      res.render('users/login'); 
+    } else {
+      
+      res.redirect('../chat');
+    }  
 });
 
 router.get('/logout', function(req, res, next) {
-  res.redirect('../users/login');
+  // remove token
+  var sess = req.session;
+  sess.token = undefined;
 
+  res.redirect('../users/login');
 });
 
 router.get('/register', function(req, res, next) {
@@ -41,7 +53,8 @@ router.post('/register', function(req,res){
     first_name: req.body.first_name, 
     last_name: req.body.last_name, 
     email: req.body.email, 
-    password: req.body.password});
+    password: req.body.password,
+  });
 
   
   if (user.password != req.body.cpass)
@@ -51,7 +64,7 @@ router.post('/register', function(req,res){
   }
 
 	
-	if((req.body.password.toString()).length <6){//user.password.length() < 6) {
+	if((req.body.password.toString()).length <6){
     console.log('bradyadair');
 		myPassLength = 'Password cannot be less than 6 characters.';
 		isValid = false;
@@ -114,28 +127,8 @@ router.post('/register', function(req,res){
 
     user.save(function(err, brady){
     if(err) return console.error(err);
-      //console.log(user.first_name, user.last_name, user.email, user.password);
     });
   }
-
-
-/*
-  User.remove(function(err, users)
-  {
-      if(err) return console.error(err);
-
-      console.log(users);
-  })
-  */
-/*
-  User.find(function(err, users)
-  {
-    if(err) return console.error(err);
-
-    console.log(users);
-
-  })
-  */
 });
 
 router.post('/login', function(req, res) {
@@ -153,14 +146,14 @@ router.post('/login', function(req, res) {
         res.render('users/login', {loginError: "Invalid Login"});
       } else {
         var genToken = jwt.sign( {username: user.username}, 'secret', {
-          expiresIn: "2h"
+          expiresIn: "23h"
         });
-
-        var sess = req.session;
+        var sess = req.session;          
         sess.token = genToken;
+        
         myEmail = user.email;
         myUsername = user.username;
-
+        
         res.redirect('../chat');
       }
     }   

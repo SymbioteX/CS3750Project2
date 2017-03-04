@@ -15,16 +15,16 @@ html
             li
                 a#logo(href='/') Let's Chat!
             li
-                a(href='/users/login') Login
+                block login
             li
-                a(href='/users/register') Register
+                block logout
             li
-                a(href='/chat') Chat
+                block register
+            li
+                block chat
     block content
     footer.footer
         div
             p.copy &copy; #{new Date().getFullYear()} - CS 3750 Group 4
-                span#about 
-                    a(href='/users/logout') Logout
     block scripts
         

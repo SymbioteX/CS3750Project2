@@ -18,62 +18,45 @@ block content
                     br
                     label Screen Name (username):
                     input#username(name='username', type='text' )
-                    span.errormsgs#namelen #{usernameLength}
-                    span.errormsgs#nameinval #{invalidUsername}
                     .content(style='color:#ff5757')
-                        | 
+                        | #{invalidUsername}
                         span.invalidUsername
                     .content(style='color:#ff5757')
-                        | 
+                        | #{usernameLength}
                         span.invalidUsername2
-                    
                     label Email Address:
                     input#email(name='email', type='text')
-                    span.errormsgs #{emailLength}
-                    span.errormsgs #{invalidEmail}
                     .content(style='color:#ff5757')
-                        | 
+                        | #{invalidEmail}
                         span.invalidEmail
                     .content(style='color:#ff5757')
-                        | 
+                        | #{emailLength}
                         span.invalidEmail2
-                    
                     label First Name:
                     input#firstname(name='first_name', type='text')
-                    span.errormsgs #{firstnameLength}
                     .content(style='color:#ff5757')
-                        | 
+                        | #{firstnameLength}
                         span.invalidFirstname
-                    
                     label Last Name:
                     input#lastname(name='last_name', type='text')
-                    span.errormsgs #{lastnameLength}
                     .content(style='color:#ff5757')
-                        | 
+                        | #{lastnameLength}
                         span.invalidLastname
-                    
                     label Password:
                     input#password(name='password', type='password')
-                    span.errormsgs #{passMatch}
-                    span.errormsgs #{passLength}
                     .content(style='color:#ff5757')
-                        | 
+                        | #{passMatch}
                         span.invalidPassword
-                    
                     label Confirm Password:
                     input#cpassword(name='cpass', type='password')
-                    span.errormsgs #{cpassLength}
                     .content(style='color:#ff5757')
-                        | 
-                        span.invalidCPassword
-                    .content(style='color:#ff5757')
-                        | 
+                        | #{passLength}
                         span.invalidPasswordMatch
-                    
                     div.submitdiv
                         div.center
                             input(type="submit" id="submit" value="Register")
             div#help
                 h3 Already have an account? 
                     a#noaccnt(href='../users/login') Login
-            
+block login
+    a#login(href='/users/login') Login

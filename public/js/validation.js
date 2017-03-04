@@ -2,147 +2,104 @@ var form = document.getElementById("myForm");
 
 function passwordValidation() {
 	console.log("I'm in passwordvalidation");
-
-	console.log(form.password.value);
-
 	var passValid = true;
 	document.querySelector('.content .invalidPassword').innerHTML = '';
 
 	if(form.password.value.length < 6) {
-		//alert("Password cannot be less than 6 characters.");
 		document.querySelector('.content .invalidPassword').innerHTML = 'Password cannot be less than 6 characters.';
-		//password.focus();
 		passValid = false;
 	}
 
-	document.querySelector('.content .invalidCPassword').innerHTML = '';
-
+	/*document.querySelector('.content .invalidCPassword').innerHTML = '';
 	if(form.cpassword.value.length < 6) {
-		//alert("Confirm Password cannot be less than 6 characters.");
 		document.querySelector('.content .invalidCPassword').innerHTML = 'Password cannot be less than 6 characters.';
-		//password.focus();
 		passValid = false;
-	}
-	
+	}*/	
 
 	document.querySelector('.content .invalidPasswordMatch').innerHTML = '';
-	if (form.password.value==form.cpassword.value)
+	if (form.password.value == form.cpassword.value && form.password.value != "")
 	{
 		console.log("passwords match");
 	}
 	else
 	{
-		document.querySelector('.content .invalidPasswordMatch').innerHTML = 'passwords do not match.';
-
-		//console.log("passwords do not match");
+		document.querySelector('.content .invalidPasswordMatch').innerHTML = 'Passwords do not match.';
 		passValid = false;
 	}
 	return passValid;
-	
-	
-
 }
-
 
 
 function usernameValidation() {	
 	console.log("I'm in email validation");
-	console.log(form.username.value);
-
-
 	var usernameIsValid = true;
 	
 	document.querySelector('.content .invalidUsername').innerHTML = '';
 	
 	if(form.username.value.length == 0) {
 		document.querySelector('.content .invalidUsername').innerHTML = 'Username cannot be blank.';
-		//form.username.focus();
 		usernameIsValid = false;
 	}
 
 	document.querySelector('.content .invalidUsername2').innerHTML = '';
 	
 	var usernameExp = "^[a-zA-Z0-9_-]*$"; ///^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
-	if(form.username.value.match(usernameExp)) 
-	{
-	} 
+	if(form.username.value.match(usernameExp));
 	else {
 		document.querySelector('.content .invalidUsername2').innerHTML = 'Username is invalid. Please Try Again. Use only Alphanumeric Characters, _ , and -.';
-		//alert("Username is invalid. Please Try Again. Use only Alphanumeric Characters, _ , and -.");
-		//form.username.focus();
 		usernameIsValid = false;
 	}
-	
 	return usernameIsValid;
 }
 
 
-
-function emailValidation() {	//inputtext
+function emailValidation() {
 	console.log("I'm in email validation");
-	console.log(form.email.value);
-
 	document.querySelector('.content .invalidEmail').innerHTML = '';
 
 	var emailIsValid = true;
 	if(form.email.value.length == 0) {
 		document.querySelector('.content .invalidEmail').innerHTML = 'Email cannot be blank.';
-		//alert("Email cannot be blank.");
-		//form.email.focus();
 		emailIsValid = false;
 	}
+	else{
+		document.querySelector('.content .invalidEmail2').innerHTML = '';
+		
+		var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+		if(form.email.value.match(emailExp)) {
+		} else {
 
-	document.querySelector('.content .invalidEmail2').innerHTML = '';
-	
-	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
-	if(form.email.value.match(emailExp)) {
-	} else {
-
-		document.querySelector('.content .invalidEmail2').innerHTML = 'Email is invalid. Please Try Again.';
-
-		//alert("Email is invalid. Please Try Again.");
-		//form.email.focus();
-		emailIsValid = false;
+			document.querySelector('.content .invalidEmail2').innerHTML = 'Email is invalid. Please Try Again.';
+			emailIsValid = false;
+		}
 	}
 	return emailIsValid;
 }
 
 
-function nameValidation() {	//inputtext
+function nameValidation() {
 	console.log("I'm in name validation");
-	console.log(form.firstname.value);
-
-
 	var nameIsValid = true;
 
 	document.querySelector('.content .invalidFirstname').innerHTML = '';
 
 	if(form.firstname.value.length == 0) {
 		document.querySelector('.content .invalidFirstname').innerHTML = 'First Name cannot be blank.';
-		//alert("Email cannot be blank.");
-		//form.firstname.focus();
 		nameIsValid = false;
 	}
 
 	document.querySelector('.content .invalidLastname').innerHTML = '';
 
 	if(form.lastname.value.length == 0) {
-		document.querySelector('.content .invalidLastname').innerHTML = 'Last Name cannot be blank..';
-		//alert("Email cannot be blank.");
-		//form.lastname.focus();
+		document.querySelector('.content .invalidLastname').innerHTML = 'Last Name cannot be blank.';
 		nameIsValid = false;
 	}
-
 	return nameIsValid;
 }
 
 
-
-
-form.addEventListener("submit", function(evt){
-	
+form.addEventListener('submit', function(evt){
 	//document.querySelector('.content .value').innerHTML = '';
-
 
 	var isValid = usernameValidation();
 	isValid = emailValidation() && isValid;
@@ -154,8 +111,5 @@ form.addEventListener("submit", function(evt){
 	{
 		console.log("I'm in preventDefault");
 		evt.preventDefault();
-		return false;
-	}
-	
-	
+	}	
 })

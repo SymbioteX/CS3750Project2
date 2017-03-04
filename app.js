@@ -6,7 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jade = require('jade');
 
+
+var User          = require('./models/user');
+
 // added ***************************
+var app = express();
 var session = require('express-session');
 var jwt = require('jsonwebtoken');
 var $ = require('jQuery')
@@ -21,10 +25,11 @@ db.once('open', function() {
   console.log("You're connected to the project 2 db");
 });
 
-//chat server
-//var express = require("express");
-var app = express();
-var port = 3700;
+var index = require('./routes/index');
+var users = require('./routes/users');
+var chat = require('./routes/chat');
+
+//var app = express();
 
 // session to store token
 app.use(session({
@@ -32,67 +37,6 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
-
-/*
-app.get("/", function(req, res){
-    res.send("It works!");
-});
-*/
-/*
-var io = require('socket.io').listen(app.listen(port));
-console.log("Listening on port " + port);
-*/
-
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
-
-//connection handler
-io.sockets.on('connection', function (socket) {
-    socket.emit('message', { message: 'Welcome to the chat!' });
-    // send message
-    socket.on('send', function (data) {
-        io.sockets.emit('message', { username: socket.username, message: data.message });
-    });
-});
-
-server.listen(3700);
-
-/*
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
-  });
-});
-*/
-/*
-var schema = new mongoose.Schema({
-  username: String,
-  email:  String,
-  first_name: String,
-  last_name: String,
-  password: String,
-  messages:  [{ 
-    content: { type: String },
-    date: { type: Date, default: Date.now }
-  }]
-});
-
-var User = mongoose.model('users', schema);
-
-User.find(function(err, users)
-{
-    if(err) return console.error(err);
-    console.log(users);
-})
-*/
-
-// ********************************
-
-var index = require('./routes/index');
-var users = require('./routes/users');
-var chat = require('./routes/chat')(io);
-
-//var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -109,12 +53,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/chat', chat);
-
-/*
-app.all('/', function(req,res){
-  res.render('chat');
-})
-*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -134,13 +72,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-//app.post('/users/register', routes.validateForm);
-/*
-app.post('/users/register', function(req, res) {
-  console.log(req.body);
-});
-*/
-
 
 module.exports = app;
-

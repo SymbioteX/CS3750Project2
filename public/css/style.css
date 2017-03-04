@@ -118,9 +118,6 @@ ul {
     list-style-type: none;
 }
 
-#logout{
-	display: none;
-}
 
 /* ------------ Section styles ------------ */
 
@@ -177,13 +174,13 @@ h2 {
 }
 #little {
 	font-weight: normal;
-	font-size: 10pt;
+	font-size: 12pt;
     line-height: 18px;
 }
 #big {
 	font-weight: bold;
-	font-size: 18pt;
-	line-height: 32px;
+	font-size: 22pt;
+	line-height: 34px;
 }
 
 .error {
@@ -221,7 +218,7 @@ h2 {
 
 .logindiv {
 	margin: auto;
-	width: 40%;
+	width: 42%;
 	height: 30%;
 	padding: 40px;
 	border-radius: 6px;
@@ -297,7 +294,7 @@ input[type=submit]{
 	font-size:16pt;
 	border-radius: 7px;
 	margin-top: 30px;
-	margin-bottom: 18px;
+	margin-bottom: 24px;
 	text-align: center;
 	cursor: pointer;
 }
@@ -334,7 +331,7 @@ input[type=submit]:hover {
 
 .registerdiv {
 	margin: auto;
-	width: 40%;
+	width: 44%;
 	height: 30%;
 	padding: 40px;
 	border-radius: 6px;
@@ -369,12 +366,10 @@ input[type=submit]:hover {
     text-align: center;
 }
 
-span.errormsgs {
-
+.content span {
 	color: #ff5757;
 	line-height: 30px;
-	padding-left: 1%;
-	
+	/*padding-left: 1%*/
 	font-family: 'Varela Round', sans-serif;
 }
 
@@ -385,12 +380,12 @@ span.errormsgs {
 .chat {
 	position: relative;
 	margin: auto;
-	height: 570px;
-	width: 50%;
-	padding: 24px 20px 20px 20px;
+	height: 545px;
+	width: 80%;
+	padding: 24px 20px 24px 20px;
 	border-radius: 6px;
 	box-shadow: 6px 6px 5px rgba(20, 56, 42, 0.5);
-	margin-top: 56px;
+	margin-top: 80px;
 	background-color: white;
 	color: #0d625f;
 }
@@ -407,12 +402,13 @@ span.errormsgs {
   	padding-left: 14px;
 	font-family: 'Varela Round', sans-serif;
 	font-size: 14pt;
-	line-height: 26px;
+	line-height: 36px;
 	word-wrap: break-word;
 }
 
-strong #chat-messages {
-	font-size: 14pt; 
+strong {
+	font-size: 14pt;
+	/*color: #234ABC;*/
 }
 
 .chat #chat-name {
@@ -429,7 +425,7 @@ strong #chat-messages {
 
 #send {
 	float: right;
-	width: 16%;
+	width: 18%;
 	background-color:#008eff;
 	color: white;
 	border: 1px solid #008eff;
@@ -445,8 +441,8 @@ strong #chat-messages {
 	background-color: #0081E4;
 }
 
-#chat-textarea{
-  width: 74%;
+#chat-text{
+  width: 72%;
   padding: 10px;
   max-width: 78%;
   font-family: 'Varela Round', sans-serif;
