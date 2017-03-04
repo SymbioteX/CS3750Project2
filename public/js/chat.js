@@ -14,7 +14,7 @@ window.onload = function() {
 
     socket.emit('join', { username: name.value });
 
-    socket.on('disconnect', console.warn.bind(console,socket));
+    //socket.on('disconnect', console.warn.bind(console,socket));
     //socket.emit('send',{username: 'bob'})
     socket.on('message', function (data) {
         if(data.message) {

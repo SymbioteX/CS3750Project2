@@ -7,8 +7,12 @@ module.exports = function(io) {
                 socket.username = data.username;
                 //socket.emit('message', {message: 'Welcome to the chat!' + socket.username});                
             } 
-            socket.emit('message', {message: 'Welcome to the chat, ' + socket.username + '!'});            
-        });    
+            io.sockets.emit('message', {message: socket.username + ' has joined the chat!'});            
+        });   
+
+        socket.on('disconnect', function (data) {
+                io.sockets.emit('message', {message: socket.username + ' has left the chat.'});            
+            });  
 
         // send message
         socket.on('send', function (data) {
