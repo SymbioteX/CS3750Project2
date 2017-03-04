@@ -17,11 +17,7 @@ function passwordValidation() {
 	}*/	
 
 	document.querySelector('.content .invalidPasswordMatch').innerHTML = '';
-	if (form.password.value == form.cpassword.value && form.password.value != "")
-	{
-		console.log("passwords match");
-	}
-	else
+	if (form.password.value != form.cpassword.value)
 	{
 		document.querySelector('.content .invalidPasswordMatch').innerHTML = 'Passwords do not match.';
 		passValid = false;
